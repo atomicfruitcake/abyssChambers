@@ -1,3 +1,4 @@
+#!/usr/bin/awk -f
 BEGIN {
    count = 0;
    obj = "";

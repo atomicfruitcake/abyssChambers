@@ -1,3 +1,4 @@
+
 typedef struct object {
    int          (*condition)(struct object *);
    const char    *description;

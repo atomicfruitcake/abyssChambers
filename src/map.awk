@@ -1,3 +1,4 @@
+#!/usr/bin/awk -f
 BEGIN               { print "digraph map {"; }
 /^- /               { outputEdge(); location = destination = prospect = ""; }
 $1 == "location"    { location = $2; }
