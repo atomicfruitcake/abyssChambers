@@ -1,83 +1,51 @@
 #include <stdio.h>
-
+#include <string.h>
 #include "object.h"
-
 #include "misc.h"
 
-#include "match.h"
-
-static int moveObject(PARAM * par, OBJECT * from, OBJECT * to) {
-    OBJECT * obj = par -> obj;
-    if (obj == NULL) {
-        printf("I don't understand what item you mean.\n");
-    } else if (from != obj -> location) {
-        switch (par -> distance) {
-        case distPlayer:
-            printf("You should not be doing that to yourself.\n");
-            break;
-        case distHeld:
-            printf("You already have %s.\n", obj -> description);
-            break;
-        case distLocation:
-            break;
-        case distOverthere:
-            printf("That's not an item.\n");
-            break;
-        case distHere:
-            if (from == player) {
-                printf("You have no %s.\n", par -> tag);
-            } else {
-                printf("Sorry, %s has no %s.\n", from -> description, par -> tag);
-            }
-            break;
-        case distHeldContained:
-            break;
-        case distHereContained:
-            printf("Sorry, %s is holding it.\n", obj -> location -> description);
-            break;
-        default:
-            printf("You don't see any %s here.\n", par -> tag);
-        }
-    } else if (to == NULL) {
-        printf("There is nobody here to give that to.\n");
-    } else if (obj -> weight > to -> capacity) {
-        printf("That is way too heavy.\n");
-    } else if (obj -> weight + weightOfContents(to) > to -> capacity) {
-        printf("That would become too heavy.\n");
-    } else {
-        obj -> location = to;
-        printf("OK.\n");
-    }
-    return 1;
+void executeLook(const char *noun)
+{
+   if (noun != NULL && strcmp(noun, "around") == 0)
+   {
+      printf("You are in %s.\n", player->location->description);
+      listObjectsAtLocation(player->location);
+   }
+   else
+   {
+      printf("I don't understand what you want to see.\n");
+   }
 }
 
-int executeGet(void) {
-    return moveObject(params, player -> location, player);
-}
-
-int executeDrop(void) {
-    return moveObject(params, player, player -> location);
-}
-
-int executeGive(void) {
-    return moveObject(params, player, personHere());
-}
-
-int executeAsk(void) {
-    return moveObject(params, personHere(), player);
-}
-
-int executeGetFrom(void) {
-    return moveObject(params, params[1].obj, player);
-}
-
-int executePutIn(void) {
-    return moveObject(params, player, params[1].obj);
-}
-
-int executeInventory(void) {
-    if (listObjectsAtLocation(player) == 0) {
-        printf("You are empty-handed.\n");
-    }
-    return 1;
+void executeGo(const char *noun)
+{
+   OBJECT *obj = parseObject(noun);
+   DISTANCE distance = distanceTo(obj);
+   if (distance >= distUnknownObject)
+   {
+      printf("I don't understand where you want to go.\n");
+   }
+   else if (distance == distLocation)
+   {
+      printf("You are already there.\n");
+   }
+   else if (distance == distOverthere)
+   {
+      printf("OK.\n");
+      player->location = obj;
+      executeLook("around");
+   }
+   else if (distance == distHere && obj->destination != NULL)
+   {
+      printf("OK.\n");
+      player->location = obj->destination;
+      executeLook("around");
+   }
+   else if (distance < distNotHere)
+   {
+      printf("You can't get any closer than this.\n");
+   }
+   else
+   {
+      printf("You don't see any %s here.\n", noun);
+   }
 }

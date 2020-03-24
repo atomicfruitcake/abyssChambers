@@ -1,7 +1,7 @@
 all: lilcave map.png
 
-C = object.c misc.c inventory.c match.c execute.c location.c main.c
-H = object.h misc.h inventory.h match.h execute.h location.h
+C = object.c misc.c inventory.c location.c match.c toggle.c main.c
+H = object.h misc.h inventory.h location.h match.h toggle.h
 
 lilcave: $(C) $(H)
 	gcc $(C) -o $@

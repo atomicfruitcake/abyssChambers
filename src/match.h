@@ -1,6 +1,6 @@
 typedef struct param {
    const char *tag;
-   OBJECT *obj;
+   OBJECT *object;
    DISTANCE distance;
    int count;
 } PARAM;
