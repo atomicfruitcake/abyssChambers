@@ -45,6 +45,14 @@ static void moveObject(const char *noun, OBJECT *from, OBJECT *to)
    {
       printf("There is nobody here to give that to.\n");
    }
+   else if (obj->weight > to->capacity)
+   {
+      printf("That is way too heavy.\n");
+   }
+   else if (obj->weight + weightOfContents(to) > to->capacity)
+   {
+      printf("That would become too heavy.\n");
+   }
    else
    {
       obj->location = to;
