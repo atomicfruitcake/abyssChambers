@@ -13,9 +13,10 @@ static int getInput()
 }
 
 static int parseAndExecute()
-{
+{   
    char *verb = strtok(input, " \n");
-   char *noun = strtok(NULL, "\n");
+   char *noun = strtok(NULL, " \n");
+   char *context = strtok(NULL, "\n");
    if (verb != NULL)
    {
       if (strcmp(verb, "quit") == 0)
@@ -52,7 +53,7 @@ static int parseAndExecute()
       }
       else if (strcmp(verb, "attack") == 0)
       {
-         executeAttack(noun);
+         executeAttack(noun, context);
       }
       else
       {

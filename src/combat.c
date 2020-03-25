@@ -2,16 +2,13 @@
 #include "object.h"
 #include "misc.h"
 
-static void attack(const char *noun, OBJECT *from, OBJECT *to)
+static void attack(const char *noun, OBJECT *to, const char *weapon)
 {
-   OBJECT *obj = parseObject(noun);
-   if (obj == NULL)
+   OBJECT *wep = parseObject(weapon);
+
+   if (to == to->location)
    {
-      printf("I don't understand what weapon you want to attack with\n");
-   }
-   else if (from == obj->location)
-   {
-      switch (distanceTo(obj))
+      switch (distanceTo(to))
       {
       case distPlayer:
          printf("You should not be doing that to yourself.\n");
@@ -24,17 +21,26 @@ static void attack(const char *noun, OBJECT *from, OBJECT *to)
    {
       printf("There is nothing here to attack.\n");
    }
-   else if (obj->weight + weightOfContents(to) > to->capacity)
+   else if (weapon == NULL)
    {
-      printf("That would become too heavy.\n");
+      printf("I don't understand what weapon you want to attack with\n");
    }
-   else if (from->health - obj->attack <= 0)
+   else if (to->health - wep->attack > 0)
    {
-      printf("You killed the '%s'.\n", from->tags[0]);
+	   to->health = to->health -  wep->attack;
+	   player->health = player->health - to->attack;
+	   printf("You did %d damage to %s.\n",  wep->attack, to->tags[0]);
+	   printf("%s has %d health remaining\n", to->tags[0], to->health);
+	   printf("\n%s fights back and does %d damage\n", to->tags[0], to->attack);
+	   printf("You now have %d health", player->health);
+   }
+   else if (to->health - wep->attack <= 0)
+   {
+      printf("You killed the '%s'\n", to->tags[0]);
    }
 }
 
-void executeAttack(const char *noun)
+void executeAttack(const char *noun, const char *weapon)
 {
-   attack(noun, personHere(), player);
+   attack(noun, personHere(), weapon);
 }
