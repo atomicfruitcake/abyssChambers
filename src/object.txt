@@ -15,6 +15,7 @@ typedef struct object {
    int            weight;
    int            capacity;
    int            health;
+   int            attack;
    const char  *(*open)(struct object *);
    const char  *(*close)(struct object *);
    const char  *(*lock)(struct object *);
@@ -47,14 +48,23 @@ extern OBJECT objs[];
      details     "The shiny coin seems to be a rare and priceless artefact.\n"
      weight      1
 
+- sword
+     description "a gold coin"
+     tags        "sword", "basic sword"
+     location    openBox
+     details     "A basic sword for protection.\n"
+     weight      1
+     attack      5
+
 - guard
      description "a burly guard"
      tags        "guard", "burly guard"
      location    field
      details     "The guard is a really big fellow.\n"
      contents    "He has"
-     health      100
+     health      10
      capacity    20
+     attack      2
 
 - player
      description "yourself"

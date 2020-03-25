@@ -2,6 +2,7 @@
 #include <string.h>
 #include "location.h"
 #include "inventory.h"
+#include "combat.h"
 
 static char input[100];
 
@@ -49,6 +50,10 @@ static int parseAndExecute()
       {
          executeInventory();
       }
+      else if (strcmp(verb, "attack") == 0)
+      {
+         executeAttack(noun);
+      }
       else
       {
          printf("I don't know how to '%s'.\n", verb);
@@ -59,7 +64,7 @@ static int parseAndExecute()
 
 int main()
 {
-   printf("Welcome to Little Cave Adventure.\n");
+   printf("Welcome to Cico!\nCan you reach the end?\n\n");
    executeLook("around");
    while (getInput() && parseAndExecute());
    printf("\nBye!\n");

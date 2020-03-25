@@ -12,6 +12,7 @@ typedef struct object {
    int            weight;
    int            capacity;
    int            health;
+   int            attack;
    const char  *(*open)(struct object *);
    const char  *(*close)(struct object *);
    const char  *(*lock)(struct object *);
@@ -24,25 +25,26 @@ extern OBJECT objs[];
 #define cave	(objs + 1)
 #define silver	(objs + 2)
 #define gold	(objs + 3)
-#define guard	(objs + 4)
-#define player	(objs + 5)
-#define intoCave	(objs + 6)
-#define intoCaveBlocked	(objs + 7)
-#define exitCave	(objs + 8)
-#define wallField	(objs + 9)
-#define wallCave	(objs + 10)
-#define backroom	(objs + 11)
-#define wallBackroom	(objs + 12)
-#define openDoorToBackroom	(objs + 13)
-#define closedDoorToBackroom	(objs + 14)
-#define openDoorToCave	(objs + 15)
-#define closedDoorToCave	(objs + 16)
-#define openBox	(objs + 17)
-#define closedBox	(objs + 18)
-#define lockedBox	(objs + 19)
-#define keyForBox	(objs + 20)
+#define sword	(objs + 4)
+#define guard	(objs + 5)
+#define player	(objs + 6)
+#define intoCave	(objs + 7)
+#define intoCaveBlocked	(objs + 8)
+#define exitCave	(objs + 9)
+#define wallField	(objs + 10)
+#define wallCave	(objs + 11)
+#define backroom	(objs + 12)
+#define wallBackroom	(objs + 13)
+#define openDoorToBackroom	(objs + 14)
+#define closedDoorToBackroom	(objs + 15)
+#define openDoorToCave	(objs + 16)
+#define closedDoorToCave	(objs + 17)
+#define openBox	(objs + 18)
+#define closedBox	(objs + 19)
+#define lockedBox	(objs + 20)
+#define keyForBox	(objs + 21)
 
-#define endOfObjs	(objs + 21)
+#define endOfObjs	(objs + 22)
 
 #define validObject(obj)	((obj) != NULL && (*(obj)->condition)((obj)))
 
