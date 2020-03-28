@@ -152,7 +152,7 @@ extern OBJECT objs[];
      details     "The passageway is narrow and dimly lit.\n"
 
 - exitPassageway
-     description "a opening to a large chamber"
+     description "You leave the passageway"
      tags        "west", "exit", "leave"
      location    passageway
      destination chamber
@@ -184,14 +184,13 @@ extern OBJECT objs[];
      open        isAlreadyOpen   
 
 - intoChamber
-     description "a large chamber"
+     description "you enter the large chamber"
      tags        "east", "entrance", "chamber", "enter"
      location    passageway
      destination chamber
      details     "The passageway opens up to a large creepy chamber\n"
      textGo      "You walk into the large chamber\n"
      open        isAlreadyOpen      
-
 
 - wallPassageway
      description "damp walls and dimly lit"

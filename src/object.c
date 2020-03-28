@@ -364,7 +364,7 @@ OBJECT objs[] = {
 	},
 	{	/* 17 = exitPassageway */
 		alwaysTrue,
-		 "a opening to a large chamber",
+		 "You leave the passageway",
 		tags17,
 		 passageway,
 		 chamber,
@@ -390,7 +390,7 @@ OBJECT objs[] = {
 		 passageway,
 		 "The backroom has a small passageway to the west\n",
 		"You see",
-		 "You walk into the narrow passageway \n",
+		 "You walk into the narrow passageway.\n OH NO! The walls have caved in behind you.\n",
 		99,
 		9999,
 		0,
@@ -440,7 +440,7 @@ OBJECT objs[] = {
 	},
 	{	/* 21 = intoChamber */
 		alwaysTrue,
-		 "a large chamber",
+		 "you enter the large chamber",
 		tags21,
 		 passageway,
 		 chamber,
