@@ -2,9 +2,22 @@
 #include "object.h"
 #include "misc.h"
 
+int checkWeaponInInventory(const char *weapon)
+{
+   if (inCurrentInventory(player, weapon)) {
+      return 0;
+   }
+   return 1;
+}
+
 static void attack(const char *noun, OBJECT *to, const char *weapon)
 {
    OBJECT *wep = parseObject(weapon);
+   if (!checkWeaponInInventory(weapon))
+   {
+      printf("No %s found in your inventory, cannot attack", weapon);
+      return;
+   }
 
    if (to == to->location)
    {

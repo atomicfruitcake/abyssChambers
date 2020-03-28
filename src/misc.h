@@ -16,4 +16,5 @@ extern DISTANCE distanceTo(OBJECT *obj);
 extern OBJECT *parseObject(const char *noun);
 extern OBJECT *personHere(void);
 extern int listObjectsAtLocation(OBJECT *location);
+extern int inCurrentInventory(OBJECT *container, const char *item);
 extern int weightOfContents(OBJECT *container);

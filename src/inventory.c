@@ -19,7 +19,6 @@ static void moveObject(const char *noun, OBJECT *from, OBJECT *to)
       case distHeld:
          printf("You already have %s.\n", obj->description);
          break;
-      case distLocation:
       case distOverthere:
          printf("That's not an item.\n");
          break;
@@ -33,7 +32,6 @@ static void moveObject(const char *noun, OBJECT *from, OBJECT *to)
             printf("Sorry, %s has no %s.\n", from->description, noun);
          }
          break;
-      case distHeldContained:
       case distHereContained:
          printf("Sorry, %s is holding it.\n", obj->location->description);
          break;

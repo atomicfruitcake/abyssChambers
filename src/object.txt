@@ -34,6 +34,11 @@ extern OBJECT objs[];
      tags        "cave"
      details     "The cave is just a cold, damp, rocky chamber.\n"
 
+- copse
+     description "a small copse"
+     tags        "copse"
+     details     "A small copse surrounded by shrubs.\n"
+
 - silver
      description "a silver coin"
      tags        "silver", "coin", "silver coin"
@@ -49,10 +54,10 @@ extern OBJECT objs[];
      weight      1
 
 - sword
-     description "a gold coin"
+     description "a basic sword"
      tags        "sword", "basic sword"
-     location    openBox
-     details     "A basic sword for protection.\n"
+     location    copse
+     details     "A simple sword for protection.\n"
      weight      1
      attack      5
 
@@ -74,6 +79,24 @@ extern OBJECT objs[];
      contents    "You have"
      health      100
      capacity    20
+
+- exitCopse
+     description "a field to the south"
+     tags        "south", "exit", "leave"
+     location    copse
+     destination field
+     details     "The copse has a field next to it\n"
+     textGo      "You exit the copse to the field\n"
+     open        isAlreadyOpen   
+
+- intoCopse
+     description "a small copse to the north"
+     tags        "north", "entrance"
+     location    field
+     destination copse
+     details     "The field has a small copse on one side\n"
+     textGo      "You walk across the field to the copse\n"
+     open        isAlreadyOpen     
 
 - intoCave
      condition   { return guard->health == 0 || silver->location == guard; }

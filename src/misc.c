@@ -86,6 +86,22 @@ int listObjectsAtLocation(OBJECT *location)
    return count;
 }
 
+int inCurrentInventory(OBJECT *container, const char *item)
+{
+   OBJECT *obj;
+   forEachObject(obj)
+   {
+      if (obj->location == container)
+      {
+         if (nounIsInTags(item, obj->tags))
+         {
+            return 0;
+         }
+      }
+   }
+   return 1;
+}
+
 int weightOfContents(OBJECT *container)
 {
    int sum = 0;
