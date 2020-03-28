@@ -99,7 +99,7 @@ extern OBJECT objs[];
      open        isAlreadyOpen     
 
 - intoCave
-     condition   { return guard->health == 0 || silver->location == guard; }
+     condition   { return guard->health <= 0 || silver->location == guard; }
      description "a cave entrance to the east"
      tags        "east", "entrance"
      location    field

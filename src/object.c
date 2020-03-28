@@ -11,7 +11,7 @@ static const char *tags6[] = { "guard", "burly guard", NULL};
 static const char *tags7[] = { "yourself", NULL};
 static const char *tags8[] = { "south", "exit", "leave", NULL};
 static const char *tags9[] = { "north", "entrance", NULL};
-static int condition10(OBJECT *obj)  { return guard->health == 0 || silver->location == guard; }
+static int condition10(OBJECT *obj)  { return guard->health <= 0 || silver->location == guard; }
 static const char *tags10[] = { "east", "entrance", NULL};
 static int condition11(OBJECT *obj)  { return guard->health > 0 && silver->location != guard; }
 static const char *tags11[] = { "east", "entrance", NULL};

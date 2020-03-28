@@ -12,6 +12,11 @@ int checkWeaponInInventory(const char *weapon)
 
 static void attack(const char *noun, OBJECT *to, const char *weapon)
 {
+   if (weapon == NULL)
+   {
+      printf("You have not selected a weapon to attack with");
+      return;
+   }
    OBJECT *wep = parseObject(weapon);
    if (!checkWeaponInInventory(weapon))
    {
@@ -50,6 +55,8 @@ static void attack(const char *noun, OBJECT *to, const char *weapon)
    else if (to->health - wep->attack <= 0)
    {
       printf("You killed the '%s'\n", to->tags[0]);
+      to->health = 0;      
+      to->location = NULL;
    }
 }
 

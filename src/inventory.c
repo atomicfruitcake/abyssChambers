@@ -42,14 +42,22 @@ static void moveObject(const char *noun, OBJECT *from, OBJECT *to)
    else if (to == NULL)
    {
       printf("There is nobody here to give that to.\n");
+      return;
+   }
+   else if (to->health <= 0)
+   {
+      printf("Cannot give that item as %s is dead.\n", to->tags[0]);
+      return;
    }
    else if (obj->weight > to->capacity)
    {
       printf("That is way too heavy.\n");
+      return;
    }
    else if (obj->weight + weightOfContents(to) > to->capacity)
    {
       printf("That would become too heavy.\n");
+      return;
    }
    else
    {

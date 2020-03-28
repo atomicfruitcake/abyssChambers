@@ -78,7 +78,11 @@ int listObjectsAtLocation(OBJECT *location)
       {
          if (count++ == 0)
          {
-            printf("%s:\n", location->contents);
+            if (obj->health >= 0)
+            {
+               printf("%s:\n", location->contents);
+            }
+            
          }
          printf("%s\n", obj->description);
       }
