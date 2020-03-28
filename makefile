@@ -2,8 +2,8 @@ all: cico map.png
 
 build: src/object.h src/object.c
 
-C = src/object.c src/misc.c src/inventory.c  src/location.c src/match.c src/toggle.c src/combat.c src/main.c
-H = src/object.h src/misc.h src/inventory.h  src/location.h src/match.h src/combat.h src/toggle.h
+C = src/object.c src/misc.c src/inventory.c  src/location.c src/match.c src/toggle.c src/combat.c src/execute.c src/main.c
+H = src/object.h src/misc.h src/inventory.h  src/location.h src/match.h src/toggle.h src/combat.h src/execute.h
 
 cico: $(C) $(H)
 	gcc $(C) -o $@

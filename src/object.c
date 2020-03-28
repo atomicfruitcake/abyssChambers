@@ -19,15 +19,22 @@ static const char *tags12[] = { "west", "out", NULL};
 static const char *tags13[] = { "west", "north", "south", "forest", NULL};
 static const char *tags14[] = { "east", "north", "rock", NULL};
 static const char *tags15[] = { "backroom", NULL};
-static const char *tags16[] = { "east", "west", "south", "rock", NULL};
-static const char *tags17[] = { "south", "door", "doorway", NULL};
-static const char *tags18[] = { "south", "door", "doorway", NULL};
-static const char *tags19[] = { "north", "door", "doorway", NULL};
-static const char *tags20[] = { "north", "door", "doorway", NULL};
-static const char *tags21[] = { "box", "wooden box", NULL};
-static const char *tags22[] = { "box", "wooden box", NULL};
-static const char *tags23[] = { "box", "wooden box", NULL};
-static const char *tags24[] = { "key", "tiny key", NULL};
+static const char *tags16[] = { "passageway", NULL};
+static const char *tags17[] = { "west", "exit", "leave", NULL};
+static const char *tags18[] = { "west", "entrance", NULL};
+static const char *tags19[] = { "chamber", NULL};
+static const char *tags20[] = { "east", "exit", "leave", NULL};
+static const char *tags21[] = { "east", "entrance", "chamber", "enter", NULL};
+static const char *tags22[] = { "north", "south", "rock", NULL};
+static const char *tags23[] = { "east", "west", "south", "rock", NULL};
+static const char *tags24[] = { "south", "door", "doorway", NULL};
+static const char *tags25[] = { "south", "door", "doorway", NULL};
+static const char *tags26[] = { "north", "door", "doorway", NULL};
+static const char *tags27[] = { "north", "door", "doorway", NULL};
+static const char *tags28[] = { "box", "wooden box", NULL};
+static const char *tags29[] = { "box", "wooden box", NULL};
+static const char *tags30[] = { "box", "wooden box", NULL};
+static const char *tags31[] = { "key", "tiny key", NULL};
 
 static int alwaysTrue(OBJECT *obj) { return 1; }
 
@@ -336,14 +343,128 @@ OBJECT objs[] = {
 		cannotBeLocked,
 		cannotBeUnlocked
 	},
-	{	/* 16 = wallBackroom */
+	{	/* 16 = passageway */
 		alwaysTrue,
-		 "solid rock all around",
+		 "a narrow passageway",
 		tags16,
+		NULL,
+		NULL,
+		NULL,
+		 "The passageway is narrow and dimly lit.\n",
+		"You see",
+		"You can't get any closer than this.\n",
+		99,
+		9999,
+		0,
+		0,
+		cannotBeOpened,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 17 = exitPassageway */
+		alwaysTrue,
+		 "a opening to a large chamber",
+		tags17,
+		 passageway,
+		 chamber,
+		 chamber,
+		 "The narrow passageway opens up to a large chamber\n",
+		"You see",
+		 "You exit the passageway and move to the large chamber\n",
+		99,
+		9999,
+		0,
+		0,
+		 isAlreadyOpen,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 18 = intoPassageway */
+		alwaysTrue,
+		 "a narrow passageway",
+		tags18,
+		 backroom,
+		 passageway,
+		 passageway,
+		 "The backroom has a small passageway to the west\n",
+		"You see",
+		 "You walk into the narrow passageway \n",
+		99,
+		9999,
+		0,
+		0,
+		 isAlreadyOpen,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 19 = chamber */
+		alwaysTrue,
+		 "a large chamber, the room smells of death",
+		tags19,
+		NULL,
+		NULL,
+		NULL,
+		 "The chamber is eerily quiet. Is that blood on the floor?\n",
+		"You see",
+		"You can't get any closer than this.\n",
+		99,
+		9999,
+		0,
+		0,
+		cannotBeOpened,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 20 = exitChamber */
+		alwaysTrue,
+		 "a small passageway to the east",
+		tags20,
+		 chamber,
+		 passageway,
+		 passageway,
+		 "There is a narrow passageway at the entrance to the chamber\n",
+		"You see",
+		 "You exit chamber into the narrow passageway\n",
+		99,
+		9999,
+		0,
+		0,
+		 isAlreadyOpen,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 21 = intoChamber */
+		alwaysTrue,
+		 "a large chamber",
+		tags21,
+		 passageway,
+		 chamber,
+		 chamber,
+		 "The passageway opens up to a large creepy chamber\n",
+		"You see",
+		 "You walk into the large chamber\n",
+		99,
+		9999,
+		0,
+		0,
+		 isAlreadyOpen,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 22 = wallPassageway */
+		alwaysTrue,
+		 "damp walls and dimly lit",
+		tags22,
 		 backroom,
 		NULL,
 		NULL,
-		 "Trendy wallpaper covers the rock walls.\n",
+		 "The rock walls are cold and damp.\n",
 		"You see",
 		 "Solid rock is blocking the way.\n",
 		99,
@@ -355,10 +476,29 @@ OBJECT objs[] = {
 		cannotBeLocked,
 		cannotBeUnlocked
 	},
-	{	/* 17 = openDoorToBackroom */
+	{	/* 23 = wallBackroom */
+		alwaysTrue,
+		 "solid rock all around",
+		tags23,
+		 backroom,
+		NULL,
+		NULL,
+		 "The rock walls are cold and damp.\n",
+		"You see",
+		 "Solid rock is blocking the way.\n",
+		99,
+		9999,
+		0,
+		0,
+		cannotBeOpened,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked
+	},
+	{	/* 24 = openDoorToBackroom */
 		alwaysTrue,
 		 "an open door to the south",
-		tags17,
+		tags24,
 		NULL,
 		 backroom,
 		 backroom,
@@ -374,10 +514,10 @@ OBJECT objs[] = {
 		cannotBeLocked,
 		cannotBeUnlocked
 	},
-	{	/* 18 = closedDoorToBackroom */
+	{	/* 25 = closedDoorToBackroom */
 		alwaysTrue,
 		 "a closed door to the south",
-		tags18,
+		tags25,
 		 cave,
 		NULL,
 		 backroom,
@@ -393,10 +533,10 @@ OBJECT objs[] = {
 		cannotBeLocked,
 		cannotBeUnlocked
 	},
-	{	/* 19 = openDoorToCave */
+	{	/* 26 = openDoorToCave */
 		alwaysTrue,
 		 "an open door to the north",
-		tags19,
+		tags26,
 		NULL,
 		 cave,
 		 cave,
@@ -412,10 +552,10 @@ OBJECT objs[] = {
 		cannotBeLocked,
 		cannotBeUnlocked
 	},
-	{	/* 20 = closedDoorToCave */
+	{	/* 27 = closedDoorToCave */
 		alwaysTrue,
 		 "a closed door to the north",
-		tags20,
+		tags27,
 		 backroom,
 		NULL,
 		 cave,
@@ -431,10 +571,10 @@ OBJECT objs[] = {
 		cannotBeLocked,
 		cannotBeUnlocked
 	},
-	{	/* 21 = openBox */
+	{	/* 28 = openBox */
 		alwaysTrue,
 		 "a wooden box",
-		tags21,
+		tags28,
 		NULL,
 		NULL,
 		NULL,
@@ -450,10 +590,10 @@ OBJECT objs[] = {
 		 isStillOpen,
 		 isAlreadyOpen
 	},
-	{	/* 22 = closedBox */
+	{	/* 29 = closedBox */
 		alwaysTrue,
 		 "a wooden box",
-		tags22,
+		tags29,
 		NULL,
 		NULL,
 		NULL,
@@ -469,10 +609,10 @@ OBJECT objs[] = {
 		 toggleBoxLock,
 		 isAlreadyUnlocked
 	},
-	{	/* 23 = lockedBox */
+	{	/* 30 = lockedBox */
 		alwaysTrue,
 		 "a wooden box",
-		tags23,
+		tags30,
 		 backroom,
 		NULL,
 		NULL,
@@ -488,10 +628,10 @@ OBJECT objs[] = {
 		 isAlreadyLocked,
 		 toggleBoxLock
 	},
-	{	/* 24 = keyForBox */
+	{	/* 31 = keyForBox */
 		alwaysTrue,
 		 "a tiny key",
-		tags24,
+		tags31,
 		 cave,
 		NULL,
 		NULL,

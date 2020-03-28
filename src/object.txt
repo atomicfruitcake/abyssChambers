@@ -146,11 +146,65 @@ extern OBJECT objs[];
      tags        "backroom"
      details     "The room is dusty and messy.\n"
 
+- passageway
+     description "a narrow passageway"
+     tags        "passageway"
+     details     "The passageway is narrow and dimly lit.\n"
+
+- exitPassageway
+     description "a opening to a large chamber"
+     tags        "west", "exit", "leave"
+     location    passageway
+     destination chamber
+     details     "The narrow passageway opens up to a large chamber\n"
+     textGo      "You exit the passageway and move to the large chamber\n"
+     open        isAlreadyOpen   
+
+- intoPassageway
+     description "a narrow passageway"
+     tags        "west", "entrance"
+     location    backroom
+     destination passageway
+     details     "The backroom has a small passageway to the west\n"
+     textGo      "You walk into the narrow passageway.\n OH NO! The walls have caved in behind you.\n"
+     open        isAlreadyOpen   
+
+- chamber
+     description "a large chamber, the room smells of death"
+     tags        "chamber"
+     details     "The chamber is eerily quiet. Is that blood on the floor?\n"
+
+- exitChamber
+     description "a small passageway to the east"
+     tags        "east", "exit", "leave"
+     location    chamber
+     destination passageway
+     details     "There is a narrow passageway at the entrance to the chamber\n"
+     textGo      "You exit chamber into the narrow passageway\n"
+     open        isAlreadyOpen   
+
+- intoChamber
+     description "a large chamber"
+     tags        "east", "entrance", "chamber", "enter"
+     location    passageway
+     destination chamber
+     details     "The passageway opens up to a large creepy chamber\n"
+     textGo      "You walk into the large chamber\n"
+     open        isAlreadyOpen      
+
+
+- wallPassageway
+     description "damp walls and dimly lit"
+     tags        "north", "south", "rock"
+     location    backroom
+     details     "The rock walls are cold and damp.\n"
+     textGo      "Solid rock is blocking the way.\n"
+
 - wallBackroom
      description "solid rock all around"
      tags        "east", "west", "south", "rock"
      location    backroom
-     details     "Trendy wallpaper covers the rock walls.\n"
+     details     "The rock walls are cold and damp.\n"
      textGo      "Solid rock is blocking the way.\n"
 
 - openDoorToBackroom

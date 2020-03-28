@@ -3,6 +3,7 @@
 #include "location.h"
 #include "inventory.h"
 #include "combat.h"
+#include "execute.h"
 
 static char input[100];
 
@@ -54,6 +55,22 @@ static int parseAndExecute()
       else if (strcmp(verb, "attack") == 0)
       {
          executeAttack(noun, context);
+      }
+      else if (strcmp(verb, "open") == 0)
+      {
+         executeOpen(noun);
+      }
+      else if (strcmp(verb, "close") == 0)
+      {
+         executeClose(noun);
+      }
+      else if (strcmp(verb, "lock") == 0)
+      {
+         executeLock(noun);
+      }
+      else if (strcmp(verb, "unlock") == 0)
+      {
+         executeUnlock(noun);
       }
       else
       {
