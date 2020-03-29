@@ -8,6 +8,8 @@
 
 #include "combat.h"
 
+#include "torch.h"
+
 #include "execute.h"
 
 #include "asciiPrint.h"
@@ -50,6 +52,10 @@ static int parseAndExecute() {
             executeLock(noun);
         } else if (strcmp(verb, "unlock") == 0) {
             executeUnlock(noun);
+        } else if (strcmp(verb, "light") == 0) {
+            if (strcmp(noun, "torch") == 0) {
+                executeLightTorch();
+            }
         } else {
             printf("I don't know how to '%s'.\n", verb);
         }

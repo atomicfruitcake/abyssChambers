@@ -346,26 +346,26 @@ extern OBJECT objs[];
      location    hauntedVaults
      destination tortureChamber
      details     "The torture chamber is filled with bloody torture tools\n"
-     textGo      "You head into the tortureChamber\n"
+     textGo      "You head into the torture chamber\n"
      open        isAlreadyOpen  
 
 - exitTortureChamber
      description "an archway leading to the haunted vaults to the north"
      tags        "north", "vaults", "haunted vaults"
      location    tortureChamber
-     prospect    hauntedVaults
+     destination hauntedVaults
      details     "The archway leads out of the torture chamber back to the vaults\n"
      textGo      "You go to the haunted vaults\n"
      open        isAlreadyOpen  
 
 - deepHauntedVaults
-     description "a small chamber filled with torture equipment to the south"
+     description "a deeper and darker section of the haunted vauls"
      tags        "torture chamber", "hauntedVaults"
      details     "The bottom of the staircase leads to the vaults\n"
 
 - intoDeepHauntedVaults
      condition   { return torch->lit == 0 && torch->location == player->location; }
-     description "a deeper section of the haunted vaults"
+     description "a deeper section of the haunted vaults to the east"
      tags        "east", "deeper", "deep"
      location    hauntedVaults
      destination deepHauntedVaults
@@ -562,7 +562,7 @@ extern OBJECT objs[];
      weight      999
 
 - bookArsGoetia
-     description "You see the ars goetia, a grimoire book on demonology"
+     description "the ars goetia, a grimoire book on demonology"
      tags        "book", "demon book", "grimoire", "ars goetia"
      location    library
      details     "This book appears to be grimoire.  \n"
