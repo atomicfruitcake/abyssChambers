@@ -53,7 +53,7 @@ const char * toggleLibaryDoor(OBJECT * obj) {
 
 const char * toggleWitchesLairDoor(OBJECT * obj) {
     swapLocations(openDoorToWitchesLair, closedDoorToWitchesLair);
-    swapLocations(openDoorToHauntedVaults, closedDoorToHauntedVaults);
+    swapLocations(openDoorToCentralVaults, closedDoorToCentralVaults);
     return "OK.\n";
 }
 

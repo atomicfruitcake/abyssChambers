@@ -32,4 +32,5 @@ close
 unlock
 lock
 ask
+light
 ```

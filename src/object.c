@@ -9,7 +9,7 @@ static const char *tags4[] = { "gold", "coin", "gold coin", NULL};
 static const char *tags5[] = { "sword", "basic sword", NULL};
 static const char *tags6[] = { "axe", "battle axe", NULL};
 static const char *tags7[] = { "yourself", NULL};
-static const char *tags8[] = { "guard", "local guard", NULL};
+static const char *tags8[] = { "guard", "royal guard", NULL};
 static const char *tags9[] = { "skeleton", "guard", "skeleton guard", NULL};
 static const char *tags10[] = { "witch", "evil witch", NULL};
 static const char *tags11[] = { "south", "exit", "leave", NULL};
@@ -32,11 +32,11 @@ static const char *tags25[] = { "east", "entrance", "chamber", "enter", NULL};
 static const char *tags26[] = { "east", "exit", "leave", NULL};
 static const char *tags27[] = { "chamberStaircase", NULL};
 static int condition28(OBJECT *obj)  { return skeletonGuard->health <= 0; }
-static const char *tags28[] = { "north", "staircase", "chamberStaircase", NULL};
+static const char *tags28[] = { "north", "staircase", "chamberStaircase", "old staircase", NULL};
 static int condition29(OBJECT *obj)  { return skeletonGuard->health > 0; }
 static const char *tags29[] = { "north", "staircase", "chamberStaircase", NULL};
 static const char *tags30[] = { "south", "chamber", NULL};
-static const char *tags31[] = { "vaults", "hauntedVaults", NULL};
+static const char *tags31[] = { "vaults", "centralVaults", NULL};
 static const char *tags32[] = { "east", "vaults", "chamberStaircase", NULL};
 static const char *tags33[] = { "west", "staircase", "chamberStaircase", NULL};
 static const char *tags34[] = { "witches lair", "lair", NULL};
@@ -44,19 +44,19 @@ static const char *tags35[] = { "north", "door", "doorway", NULL};
 static const char *tags36[] = { "north", "door", "doorway", "witches door", NULL};
 static const char *tags37[] = { "south", "door", "doorway", NULL};
 static const char *tags38[] = { "west", "door", "doorway", NULL};
-static const char *tags39[] = { "torture chamber", "hauntedVaults", NULL};
+static const char *tags39[] = { "torture chamber", "centralVaults", NULL};
 static const char *tags40[] = { "south", "chamber", "tortureChamber", NULL};
-static const char *tags41[] = { "north", "vaults", "haunted vaults", NULL};
-static const char *tags42[] = { "torture chamber", "hauntedVaults", NULL};
-static int condition43(OBJECT *obj)  { return torch->lit == 0 && torch->location == player->location; }
+static const char *tags41[] = { "north", "vaults", "central vaults", NULL};
+static const char *tags42[] = { "torture chamber", "centralVaults", NULL};
+static int condition43(OBJECT *obj)  { return torch -> lit == 0 && torch -> location == player->location; }
 static const char *tags43[] = { "east", "deeper", "deep", NULL};
-static int condition44(OBJECT *obj)  { return torch->lit == 1 || torch->location != player->location; }
+static int condition44(OBJECT *obj)  { return torch->lit == 1; }
 static const char *tags44[] = { "east", "deeper", "deep", NULL};
-static const char *tags45[] = { "west", "vaults", "haunted vaults", NULL};
+static const char *tags45[] = { "west", "vaults", "central vaults", NULL};
 static const char *tags46[] = { "chamberAnteroom", "anteroom", NULL};
-static int condition47(OBJECT *obj)  { return skeletonGuard->health <= 0; }
+static int condition47(OBJECT *obj)  { return skeletonGuard -> health <= 0; }
 static const char *tags47[] = { "south", "anteroom", "chamberAnteroom", NULL};
-static int condition48(OBJECT *obj)  { return skeletonGuard->health > 0; }
+static int condition48(OBJECT *obj)  { return skeletonGuard -> health > 0; }
 static const char *tags48[] = { "south", "anteroom", "chamberAnteroom", NULL};
 static const char *tags49[] = { "north", "exit", "leave", "exit anteroom", NULL};
 static const char *tags50[] = { "chamberAnteroom", "anteroom", NULL};
@@ -72,9 +72,10 @@ static const char *tags59[] = { "box", "wooden box", NULL};
 static const char *tags60[] = { "box", "wooden box", NULL};
 static const char *tags61[] = { "box", "wooden box", NULL};
 static const char *tags62[] = { "key", "tiny key", NULL};
-static const char *tags63[] = { "torch", "unlit torch", NULL};
-static const char *tags64[] = { "cauldron", "bubbling cauldron", NULL};
-static const char *tags65[] = { "book", "demon book", "grimoire", "ars goetia", NULL};
+static const char *tags63[] = { "key", "old key", "iron key", "old iron key", NULL};
+static const char *tags64[] = { "torch", "unlit torch", NULL};
+static const char *tags65[] = { "cauldron", "bubbling cauldron", NULL};
+static const char *tags66[] = { "book", "demon book", "grimoire", "ars goetia", NULL};
 
 static int alwaysTrue(OBJECT *obj) { return 1; }
 
@@ -86,7 +87,7 @@ OBJECT objs[] = {
 		NULL,
 		NULL,
 		NULL,
-		 "The field is a nice and quiet place under a clear blue sky.\n",
+		 "The field is a nice and quiet place under a clear blue sky.\n A royal guard is protecting the entrance to the cave, I wonder what's in there",
 		"You see",
 		"You can't get any closer than this.\n",
 		99,
@@ -121,12 +122,12 @@ OBJECT objs[] = {
 	},
 	{	/* 2 = copse */
 		alwaysTrue,
-		 "a small copse",
+		 "a small wooded copse",
 		tags2,
 		NULL,
 		NULL,
 		NULL,
-		 "A small copse surrounded by shrubs.\n",
+		 "A small copse surrounded by shrubs. The remains of a fallen knight lay on the floor\n",
 		"You see",
 		"You can't get any closer than this.\n",
 		99,
@@ -206,7 +207,7 @@ OBJECT objs[] = {
 		 tortureChamber,
 		NULL,
 		NULL,
-		 "A axe designed for combar\n",
+		 "A axe designed for combat. There is dried blood on the blade\n",
 		"You see",
 		"You can't get any closer than this.\n",
 		 3,
@@ -223,7 +224,7 @@ OBJECT objs[] = {
 		alwaysTrue,
 		 "yourself",
 		tags7,
-		 field,
+		 copse,
 		NULL,
 		NULL,
 		 "You would need a mirror to look at yourself.\n",
@@ -241,7 +242,7 @@ OBJECT objs[] = {
 	},
 	{	/* 8 = guard */
 		alwaysTrue,
-		 "a local guard",
+		 "a royal guard",
 		tags8,
 		 field,
 		NULL,
@@ -261,12 +262,12 @@ OBJECT objs[] = {
 	},
 	{	/* 9 = skeletonGuard */
 		alwaysTrue,
-		 "an animated skeleton guard",
+		 "an necromanced skeleton guard",
 		tags9,
 		 chamber,
 		NULL,
 		NULL,
-		 "The skeleton is block the way through the chamber.\n",
+		 "The skeleton is blocking the way through the chamber.\n There must be a necromancer nearby",
 		 "He has",
 		"You can't get any closer than this.\n",
 		99,
@@ -281,7 +282,7 @@ OBJECT objs[] = {
 	},
 	{	/* 10 = evilWitch */
 		alwaysTrue,
-		 "an evil witch guarding the cauldron",
+		 "An evil witch guarding the cauldron. She looks frail, I reckon she'll go down with one swing of an axe. Don't let her hit you!",
 		tags10,
 		 witchesLair,
 		NULL,
@@ -292,7 +293,7 @@ OBJECT objs[] = {
 		99,
 		 20,
 		 8,
-		 20,
+		 50,
 		cannotBeOpened,
 		cannotBeClosed,
 		cannotBeLocked,
@@ -306,7 +307,7 @@ OBJECT objs[] = {
 		 copse,
 		 field,
 		 field,
-		 "The copse has a field next to it\n",
+		 "The copse has a field next to the south\n",
 		"You see",
 		 "You exit the copse to the field\n",
 		99,
@@ -361,14 +362,14 @@ OBJECT objs[] = {
 	},
 	{	/* 14 = intoCaveBlocked */
 		condition14,
-		 "a cave entrance to the east",
+		 "a large cave entrance to the east",
 		tags14,
 		 field,
 		NULL,
 		 cave,
-		 "The entrance is just a narrow opening in a small outcrop.\n",
+		 "The entrance looks well worn, people have used this to get somewhere.\n",
 		"You see",
-		 "The guard stops you from walking into the cave.\n",
+		 "The royal guard stops you from walking into the cave. Maybe I can bribe him, or use a blade\n",
 		99,
 		9999,
 		0,
@@ -386,7 +387,7 @@ OBJECT objs[] = {
 		 cave,
 		 field,
 		 field,
-		 "Sunlight pours in through an opening in the cave's wall.\n",
+		 "Sunlight pours in through the entrance in the cave's wall.\n",
 		"You see",
 		 "You walk out of the cave.\n",
 		99,
@@ -401,7 +402,7 @@ OBJECT objs[] = {
 	},
 	{	/* 16 = wallField */
 		alwaysTrue,
-		 "dense forest all around",
+		 "a thick, dense forest all around",
 		tags16,
 		 field,
 		NULL,
@@ -441,12 +442,12 @@ OBJECT objs[] = {
 	},
 	{	/* 18 = backroom */
 		alwaysTrue,
-		 "a backroom",
+		 "a manmade backroom built into the cave",
 		tags18,
 		NULL,
 		NULL,
 		NULL,
-		 "The room is dusty and messy.\n",
+		 "The room is dusty and messy. There is mysterious writing on the walls\n",
 		"You see",
 		"You can't get any closer than this.\n",
 		99,
@@ -466,7 +467,7 @@ OBJECT objs[] = {
 		 backroom,
 		NULL,
 		NULL,
-		 "The rock walls are cold and damp.\n",
+		 "The rock walls are cold and damp. There is mysterious writing scribbled on the walls\n",
 		"You see",
 		 "Solid rock is blocking the way.\n",
 		99,
@@ -546,7 +547,7 @@ OBJECT objs[] = {
 		 chamber,
 		NULL,
 		NULL,
-		 "The stone walls are splatted with blood.\n",
+		 "The stone walls are splattered with blood.\n",
 		"You see",
 		 "Solid stone walls are blocking the way\n",
 		99,
@@ -561,12 +562,12 @@ OBJECT objs[] = {
 	},
 	{	/* 24 = chamber */
 		alwaysTrue,
-		 "a large chamber, the room smells of death",
+		 "a large chamber, the room smells of death and decay",
 		tags24,
 		NULL,
 		NULL,
 		NULL,
-		 "The chamber is eerily quiet. Is that blood on the floor?\n",
+		 "The chamber is eerily quiet. Is that blood on the floor and walls?\n",
 		"You see",
 		"You can't get any closer than this.\n",
 		99,
@@ -581,14 +582,14 @@ OBJECT objs[] = {
 	},
 	{	/* 25 = intoChamber */
 		alwaysTrue,
-		 "an opening to a large chamber to the east",
+		 "an opening to a large gothic chamber to the east",
 		tags25,
 		 passageway,
 		 chamber,
 		 chamber,
-		 "The passageway opens up to a large creepy chamber\n",
+		 "The passageway opens up to a large gothic chamber\n",
 		"You see",
-		 "You walk into the large chamber\n",
+		 "You climb into the large gothic chamber. There is an uneasy presence in the air\n",
 		99,
 		9999,
 		0,
@@ -641,14 +642,14 @@ OBJECT objs[] = {
 	},
 	{	/* 28 = intoChamberStaircase */
 		condition28,
-		 "a staircase leading down to the north",
+		 "a old staircase leading downwards to the north",
 		tags28,
 		 chamber,
 		 chamberStaircase,
 		 chamberStaircase,
 		 "The staircase leads deeper down\n",
 		"You see",
-		 "You walk into the staircase\n",
+		 "You walk into the staircase to the north of the chamber\n",
 		99,
 		9999,
 		0,
@@ -661,7 +662,7 @@ OBJECT objs[] = {
 	},
 	{	/* 29 = intoChamberStaircaseBlocked */
 		condition29,
-		 "a staircase leading down to the north",
+		 "a old staircase leading downwards to the north",
 		tags29,
 		 chamber,
 		NULL,
@@ -699,7 +700,7 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 31 = hauntedVaults */
+	{	/* 31 = centralVaults */
 		alwaysTrue,
 		 "dark and dingy vaults. You can barely see a thing",
 		tags31,
@@ -719,13 +720,13 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 32 = intoHauntedVaults */
+	{	/* 32 = intoCentralVaults */
 		alwaysTrue,
 		 "an opening to some vaults at the bottom of the staircase to the east",
 		tags32,
 		 chamberStaircase,
-		 hauntedVaults,
-		 hauntedVaults,
+		 centralVaults,
+		 centralVaults,
 		 "The staircase leads deeper down\n",
 		"You see",
 		 "You walk into the staircase\n",
@@ -739,11 +740,11 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 33 = exitHauntedVaultsStaircase */
+	{	/* 33 = exitCentralVaultsStaircase */
 		alwaysTrue,
 		 "a staircase leading back the the chamber to the west",
 		tags33,
-		 hauntedVaults,
+		 centralVaults,
 		NULL,
 		 chamberStaircase,
 		 "The staircase leads back to the chamber\n",
@@ -761,12 +762,12 @@ OBJECT objs[] = {
 	},
 	{	/* 34 = witchesLair */
 		alwaysTrue,
-		 "the witches lair",
+		 "the evil witches lair. \nThere are potions and spellbooks everywhere\n",
 		tags34,
 		NULL,
 		NULL,
 		NULL,
-		 "There is a bubbling cauldron over a fire protected by an evil witch \\n",
+		 "There is a bubbling cauldron over a FIRE protected by an evil witch \\n",
 		"You see",
 		"You can't get any closer than this.\n",
 		99,
@@ -801,9 +802,9 @@ OBJECT objs[] = {
 	},
 	{	/* 36 = closedDoorToWitchesLair */
 		alwaysTrue,
-		 "a rusty metal door to the north. It's closed",
+		 "a rusty metal door to the north. It's closed. There are mystical drawings around the door",
 		tags36,
-		 hauntedVaults,
+		 centralVaults,
 		NULL,
 		 witchesLair,
 		 "The door is closed.\n",
@@ -819,13 +820,13 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 37 = openDoorToHauntedVaults */
+	{	/* 37 = openDoorToCentralVaults */
 		alwaysTrue,
-		 "a rusty metal door to the south leading to the vaults. It's open",
+		 "a rusty metal door to the south leading to the central vaults. It's open",
 		tags37,
 		NULL,
-		 hauntedVaults,
-		 hauntedVaults,
+		 centralVaults,
+		 centralVaults,
 		 "The door is open.\n",
 		"You see",
 		 "You walk through the rusty metal door to the vaults\n",
@@ -839,13 +840,13 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 38 = closedDoorToHauntedVaults */
+	{	/* 38 = closedDoorToCentralVaults */
 		alwaysTrue,
 		 "an ornate wooden door to the west leading to the chamber anteroom. It's open",
 		tags38,
 		 witchesLair,
 		NULL,
-		 hauntedVaults,
+		 centralVaults,
 		 "The door is closed.\n",
 		"You see",
 		 "The door is closed.\n",
@@ -883,7 +884,7 @@ OBJECT objs[] = {
 		alwaysTrue,
 		 "an archway leading to the torture chamber to the south",
 		tags40,
-		 hauntedVaults,
+		 centralVaults,
 		 tortureChamber,
 		 tortureChamber,
 		 "The torture chamber is filled with bloody torture tools\n",
@@ -901,14 +902,14 @@ OBJECT objs[] = {
 	},
 	{	/* 41 = exitTortureChamber */
 		alwaysTrue,
-		 "an archway leading to the haunted vaults to the north",
+		 "an archway leading to the central vaults to the north",
 		tags41,
 		 tortureChamber,
-		 hauntedVaults,
-		 hauntedVaults,
+		 centralVaults,
+		 centralVaults,
 		 "The archway leads out of the torture chamber back to the vaults\n",
 		"You see",
-		 "You go to the haunted vaults\n",
+		 "You go to the central vaults\n",
 		99,
 		9999,
 		0,
@@ -919,9 +920,9 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 42 = deepHauntedVaults */
+	{	/* 42 = deepCentralVaults */
 		alwaysTrue,
-		 "a deeper and darker section of the haunted vaults",
+		 "a deeper and darker section of the central vaults",
 		tags42,
 		NULL,
 		NULL,
@@ -939,13 +940,13 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 43 = intoDeepHauntedVaults */
+	{	/* 43 = intoDeepCentralVaults */
 		condition43,
-		 "a deeper section of the haunted vaults to the east",
+		 "a deeper section of the central vaults to the east",
 		tags43,
-		 hauntedVaults,
-		 deepHauntedVaults,
-		 deepHauntedVaults,
+		 centralVaults,
+		 deepCentralVaults,
+		 deepCentralVaults,
 		 "The vaults are pitch black\n",
 		"You see",
 		 "You head into the deeper section of the vaults\n",
@@ -959,16 +960,16 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 44 = intoDeepHauntedVaultsBlocked */
+	{	/* 44 = intoDeepCentralVaultsBlocked */
 		condition44,
-		 "a deeper section of the haunted vaults to the east",
+		 "a deeper section of the central vaults to the east",
 		tags44,
-		 hauntedVaults,
-		 deepHauntedVaults,
-		 deepHauntedVaults,
+		 centralVaults,
+		NULL,
+		 deepCentralVaults,
 		 "The vaults are pitch black\n",
 		"You see",
-		 "You head into the deeper section of the vaults\n",
+		 "it's too dark to go any further without a light source\n",
 		99,
 		9999,
 		0,
@@ -979,16 +980,16 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 45 = exitDeepHauntedVaults */
+	{	/* 45 = exitDeepCentralVaults */
 		alwaysTrue,
 		 "the vaults get brighter to the west",
 		tags45,
-		 deepHauntedVaults,
+		 deepCentralVaults,
 		NULL,
-		 hauntedVaults,
+		 centralVaults,
 		 "The vaults get lighter east heading to the staircase\n",
 		"You see",
-		 "You go to the haunted vaults\n",
+		 "You go to the central vaults\n",
 		99,
 		9999,
 		0,
@@ -1339,11 +1340,31 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 63 = torch */
+	{	/* 63 = oldIronKey */
+		alwaysTrue,
+		 "an old iron key",
+		tags63,
+		 tortureChamber,
+		NULL,
+		NULL,
+		 "The key old and rusty. Perhaps someone was chained up with this\n",
+		"You see",
+		"You can't get any closer than this.\n",
+		 1,
+		9999,
+		0,
+		0,
+		cannotBeOpened,
+		cannotBeClosed,
+		cannotBeLocked,
+		cannotBeUnlocked,
+		0
+	},
+	{	/* 64 = torch */
 		alwaysTrue,
 		 "an unlit torch",
-		tags63,
-		 hauntedVaults,
+		tags64,
+		 centralVaults,
 		NULL,
 		NULL,
 		 "The torch is unlit. Maybe I can find a way to light it up",
@@ -1359,10 +1380,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		 1
 	},
-	{	/* 64 = cauldron */
+	{	/* 65 = cauldron */
 		alwaysTrue,
 		 "a bubbling cauldron",
-		tags64,
+		tags65,
 		 witchesLair,
 		NULL,
 		NULL,
@@ -1379,10 +1400,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 65 = bookArsGoetia */
+	{	/* 66 = bookArsGoetia */
 		alwaysTrue,
 		 "the ars goetia, a grimoire book on demonology",
-		tags65,
+		tags66,
 		 library,
 		NULL,
 		NULL,

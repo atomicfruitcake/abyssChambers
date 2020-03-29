@@ -28,7 +28,7 @@ extern OBJECT objs[];
 - field
      description "an open field"
      tags        "field"
-     details     "The field is a nice and quiet place under a clear blue sky.\n"
+     details     "The field is a nice and quiet place under a clear blue sky.\n A royal guard is protecting the entrance to the cave, I wonder what's in there"
 
 - cave
      description "a little cave"
@@ -36,9 +36,9 @@ extern OBJECT objs[];
      details     "The cave is just a cold, damp, rocky chamber.\n"
 
 - copse
-     description "a small copse"
+     description "a small wooded copse"
      tags        "copse"
-     details     "A small copse surrounded by shrubs.\n"
+     details     "A small copse surrounded by shrubs. The remains of a fallen knight lay on the floor\n"
 
 - silver
      description "a silver coin"
@@ -66,22 +66,22 @@ extern OBJECT objs[];
      description "a battle axe"
      tags        "axe", "battle axe"
      location    tortureChamber
-     details     "A axe designed for combar\n"
+     details     "A axe designed for combat. There is dried blood on the blade\n"
      weight      3
      attack      8
 
 - player
      description "yourself"
      tags        "yourself"
-     location    field
+     location    copse
      details     "You would need a mirror to look at yourself.\n"
      contents    "You have"
      health      100
      capacity    20
 
 - guard
-     description "a local guard"
-     tags        "guard", "local guard"
+     description "a royal guard"
+     tags        "guard", "royal guard"
      location    field
      details     "The guard is protecting the entrance to the cave, I wonder why?\n"
      contents    "He has"
@@ -90,24 +90,24 @@ extern OBJECT objs[];
      attack      2
 
 - skeletonGuard
-     description "an animated skeleton guard"
+     description "an necromanced skeleton guard"
      tags        "skeleton", "guard", "skeleton guard"
      location    chamber
-     details     "The skeleton is block the way through the chamber.\n"
+     details     "The skeleton is blocking the way through the chamber.\n There must be a necromancer nearby"
      contents    "He has"
      health      15
      capacity    20
      attack      10
 
 - evilWitch
-     description "an evil witch guarding the cauldron"
+     description "An evil witch guarding the cauldron. She looks frail, I reckon she'll go down with one swing of an axe. Don't let her hit you!"
      tags        "witch", "evil witch"
      location    witchesLair
      details     "The witch is guarding the cauldron. She looks dangerous\n"
      contents    "She has"
      health      8
      capacity    20
-     attack      20
+     attack      50
 
 
 - exitCopse
@@ -115,7 +115,7 @@ extern OBJECT objs[];
      tags        "south", "exit", "leave"
      location    copse
      destination field
-     details     "The copse has a field next to it\n"
+     details     "The copse has a field next to the south\n"
      textGo      "You exit the copse to the field\n"
      open        isAlreadyOpen   
 
@@ -140,12 +140,12 @@ extern OBJECT objs[];
 
 - intoCaveBlocked
      condition   { return guard->health > 0 && silver->location != guard; }
-     description "a cave entrance to the east"
+     description "a large cave entrance to the east"
      tags        "east", "entrance"
      location    field
      prospect    cave
-     details     "The entrance is just a narrow opening in a small outcrop.\n"
-     textGo      "The guard stops you from walking into the cave.\n"
+     details     "The entrance looks well worn, people have used this to get somewhere.\n"
+     textGo      "The royal guard stops you from walking into the cave. Maybe I can bribe him, or use a blade\n"
      open        isAlreadyOpen
 
 - exitCave
@@ -153,12 +153,12 @@ extern OBJECT objs[];
      tags        "west", "out"
      location    cave
      destination field
-     details     "Sunlight pours in through an opening in the cave's wall.\n"
+     details     "Sunlight pours in through the entrance in the cave's wall.\n"
      textGo      "You walk out of the cave.\n"
      open        isAlreadyOpen
 
 - wallField
-     description "dense forest all around"
+     description "a thick, dense forest all around"
      tags        "west", "north", "south", "forest"
      location    field
      details     "The field is surrounded by trees and undergrowth.\n"
@@ -172,15 +172,15 @@ extern OBJECT objs[];
      textGo      "Solid rock is blocking the way.\n"
 
 - backroom
-     description "a backroom"
+     description "a manmade backroom built into the cave"
      tags        "backroom"
-     details     "The room is dusty and messy.\n"
+     details     "The room is dusty and messy. There is mysterious writing on the walls\n"
 
 - wallBackroom
      description "solid rock all around"
      tags        "east", "west", "south", "rock"
      location    backroom
-     details     "The rock walls are cold and damp.\n"
+     details     "The rock walls are cold and damp. There is mysterious writing scribbled on the walls\n"
      textGo      "Solid rock is blocking the way.\n"
 
 - passageway
@@ -208,22 +208,21 @@ extern OBJECT objs[];
      description "cold stone walls covered in blood"
      tags        "east"
      location    chamber
-     details     "The stone walls are splatted with blood.\n"
+     details     "The stone walls are splattered with blood.\n"
      textGo      "Solid stone walls are blocking the way\n"
 
-
 - chamber
-     description "a large chamber, the room smells of death"
+     description "a large chamber, the room smells of death and decay"
      tags        "chamber"
-     details     "The chamber is eerily quiet. Is that blood on the floor?\n"
+     details     "The chamber is eerily quiet. Is that blood on the floor and walls?\n"
 
 - intoChamber
-     description "an opening to a large chamber to the east"
+     description "an opening to a large gothic chamber to the east"
      tags        "east", "entrance", "chamber", "enter"
      location    passageway
      destination chamber
-     details     "The passageway opens up to a large creepy chamber\n"
-     textGo      "You walk into the large chamber\n"
+     details     "The passageway opens up to a large gothic chamber\n"
+     textGo      "You climb into the large gothic chamber. There is an uneasy presence in the air\n"
      open        isAlreadyOpen     
 
 - exitChamber
@@ -242,17 +241,17 @@ extern OBJECT objs[];
 
 - intoChamberStaircase
      condition   { return skeletonGuard->health <= 0; }
-     description "a staircase leading down to the north"
-     tags        "north", "staircase", "chamberStaircase"
+     description "a old staircase leading downwards to the north"
+     tags        "north", "staircase", "chamberStaircase", "old staircase"
      location    chamber
      destination chamberStaircase
      details     "The staircase leads deeper down\n"
-     textGo      "You walk into the staircase\n"
+     textGo      "You walk into the staircase to the north of the chamber\n"
      open        isAlreadyOpen  
 
 - intoChamberStaircaseBlocked
      condition   { return skeletonGuard->health > 0; }
-     description "a staircase leading down to the north"
+     description "a old staircase leading downwards to the north"
      tags        "north", "staircase", "chamberStaircase"
      location    chamber
      prospect    chamberStaircase
@@ -269,33 +268,33 @@ extern OBJECT objs[];
      textGo      "You climb the staircase and go to the chamber\n"
      open        isAlreadyOpen 
 
-- hauntedVaults
+- centralVaults
      description "dark and dingy vaults. You can barely see a thing"
-     tags        "vaults", "hauntedVaults"
+     tags        "vaults", "centralVaults"
      details     "The bottom of the staircase leads to the vaults\n"
 
-- intoHauntedVaults
+- intoCentralVaults
      description "an opening to some vaults at the bottom of the staircase to the east"
      tags        "east", "vaults", "chamberStaircase"
      location    chamberStaircase
-     destination hauntedVaults
+     destination centralVaults
      details     "The staircase leads deeper down\n"
      textGo      "You walk into the staircase\n"
      open        isAlreadyOpen  
 
-- exitHauntedVaultsStaircase
+- exitCentralVaultsStaircase
      description "a staircase leading back the the chamber to the west"
      tags        "west", "staircase", "chamberStaircase"
-     location    hauntedVaults
+     location    centralVaults
      prospect    chamberStaircase
      details     "The staircase leads back to the chamber\n"
      textGo      "You go to the chamber staircase\n"
      open        isAlreadyOpen  
 
 - witchesLair
-     description "the witches lair"
+     description "the evil witches lair. \nThere are potions and spellbooks everywhere\n"
      tags        "witches lair", "lair"
-     details     "There is a bubbling cauldron over a fire protected by an evil witch \\n"
+     details     "There is a bubbling cauldron over a FIRE protected by an evil witch \\n"
 
 - openDoorToWitchesLair
      description "a rusty metal door to the north. You hear cackling from inside"
@@ -307,29 +306,29 @@ extern OBJECT objs[];
      close       toggleWitchesLairDoor
 
 - closedDoorToWitchesLair
-     description "a rusty metal door to the north. It's closed"
+     description "a rusty metal door to the north. It's closed. There are mystical drawings around the door"
      tags        "north", "door", "doorway", "witches door"
-     location    hauntedVaults
+     location    centralVaults
      prospect    witchesLair
      details     "The door is closed.\n"
      textGo      "The door is closed.\n"
      open        toggleWitchesLairDoor
      close       isAlreadyClosed
 
-- openDoorToHauntedVaults
-     description "a rusty metal door to the south leading to the vaults. It's open"
+- openDoorToCentralVaults
+     description "a rusty metal door to the south leading to the central vaults. It's open"
      tags        "south", "door", "doorway"
-     destination hauntedVaults
+     destination centralVaults
      details     "The door is open.\n"
      textGo      "You walk through the rusty metal door to the vaults\n"
      open        isAlreadyOpen
      close       toggleWitchesLairDoor
 
-- closedDoorToHauntedVaults
+- closedDoorToCentralVaults
      description "an ornate wooden door to the west leading to the chamber anteroom. It's open"
      tags        "west", "door", "doorway"
      location    witchesLair
-     prospect    hauntedVaults
+     prospect    centralVaults
      details     "The door is closed.\n"
      textGo      "The door is closed.\n"
      open        toggleWitchesLairDoor
@@ -337,59 +336,59 @@ extern OBJECT objs[];
 
 - tortureChamber
      description "a small chamber filled with torture equipment"
-     tags        "torture chamber", "hauntedVaults"
+     tags        "torture chamber", "centralVaults"
      details     "The bottom of the staircase leads to the vaults\n"
 
 - intoTortureChamber
      description "an archway leading to the torture chamber to the south"
      tags        "south", "chamber", "tortureChamber"
-     location    hauntedVaults
+     location    centralVaults
      destination tortureChamber
      details     "The torture chamber is filled with bloody torture tools\n"
      textGo      "You head into the torture chamber\n"
      open        isAlreadyOpen  
 
 - exitTortureChamber
-     description "an archway leading to the haunted vaults to the north"
-     tags        "north", "vaults", "haunted vaults"
+     description "an archway leading to the central vaults to the north"
+     tags        "north", "vaults", "central vaults"
      location    tortureChamber
-     destination hauntedVaults
+     destination centralVaults
      details     "The archway leads out of the torture chamber back to the vaults\n"
-     textGo      "You go to the haunted vaults\n"
+     textGo      "You go to the central vaults\n"
      open        isAlreadyOpen  
 
-- deepHauntedVaults
-     description "a deeper and darker section of the haunted vaults"
-     tags        "torture chamber", "hauntedVaults"
+- deepCentralVaults
+     description "a deeper and darker section of the central vaults"
+     tags        "torture chamber", "centralVaults"
      details     "The bottom of the staircase leads to the vaults\n"
 
-- intoDeepHauntedVaults
-     condition   { return torch->lit == 0 && torch->location == player->location; }
-     description "a deeper section of the haunted vaults to the east"
+- intoDeepCentralVaults
+     condition   { return torch -> lit == 0 && torch -> location == player->location; }
+     description "a deeper section of the central vaults to the east"
      tags        "east", "deeper", "deep"
-     location    hauntedVaults
-     destination deepHauntedVaults
+     location    centralVaults
+     destination deepCentralVaults
      details     "The vaults are pitch black\n"
      textGo      "You head into the deeper section of the vaults\n"
      open        isAlreadyOpen  
 
-- intoDeepHauntedVaultsBlocked
-     condition   { return torch->lit == 1 || torch->location != player->location; }
-     description "a deeper section of the haunted vaults to the east"
+- intoDeepCentralVaultsBlocked
+     condition   { return torch->lit == 1; }
+     description "a deeper section of the central vaults to the east"
      tags        "east", "deeper", "deep"
-     location    hauntedVaults
-     destination deepHauntedVaults
+     location    centralVaults
+     prospect    deepCentralVaults
      details     "The vaults are pitch black\n"
-     textGo      "You head into the deeper section of the vaults\n"
+     textGo      "it's too dark to go any further without a light source\n"
      open        isAlreadyOpen  
 
-- exitDeepHauntedVaults
+- exitDeepCentralVaults
      description "the vaults get brighter to the west"
-     tags        "west", "vaults", "haunted vaults"
-     location    deepHauntedVaults
-     prospect    hauntedVaults
+     tags        "west", "vaults", "central vaults"
+     location    deepCentralVaults
+     prospect    centralVaults
      details     "The vaults get lighter east heading to the staircase\n"
-     textGo      "You go to the haunted vaults\n"
+     textGo      "You go to the central vaults\n"
      open        isAlreadyOpen  
 
 - chamberAnteroom
@@ -398,7 +397,7 @@ extern OBJECT objs[];
      details     "The anteroom the backs onto the chamber \n"
 
 - intoChamberAnteroom
-     condition   { return skeletonGuard->health <= 0; }
+     condition   { return skeletonGuard -> health <= 0; }
      description "an small anteroom to the south"
      tags        "south", "anteroom", "chamberAnteroom"
      location    chamber
@@ -408,7 +407,7 @@ extern OBJECT objs[];
      open        isAlreadyOpen  
 
 - intoChamberAnteroomBlocked
-     condition   { return skeletonGuard->health > 0; }
+     condition   { return skeletonGuard -> health > 0; }
      description "an small anteroom to the south"
      tags        "south", "anteroom", "chamberAnteroom"
      location    chamber
@@ -546,10 +545,17 @@ extern OBJECT objs[];
      details     "The key is really small and shiny.\n"
      weight      1
 
+- oldIronKey
+     description "an old iron key"
+     tags        "key", "old key", "iron key", "old iron key"
+     location    tortureChamber
+     details     "The key old and rusty. Perhaps someone was chained up with this\n"
+     weight      1
+
 - torch
      description "an unlit torch"
      tags        "torch", "unlit torch"
-     location    hauntedVaults
+     location    centralVaults
      details     "The torch is unlit. Maybe I can find a way to light it up"
      weight      1
      lit         1

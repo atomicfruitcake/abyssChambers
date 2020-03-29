@@ -14,6 +14,9 @@
 
 #include "asciiPrint.h"
 
+#include "help.h"
+
+
 static char input[100];
 
 static int getInput() {
@@ -42,6 +45,8 @@ static int parseAndExecute() {
             executeAsk(noun);
         } else if (strcmp(verb, "inventory") == 0) {
             executeInventory();
+        } else if (strcmp(verb, "help") == 0) {
+            executeHelp();
         } else if (strcmp(verb, "attack") == 0) {
             executeAttack(noun, context);
         } else if (strcmp(verb, "open") == 0) {
