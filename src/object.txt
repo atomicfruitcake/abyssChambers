@@ -146,33 +146,47 @@ extern OBJECT objs[];
      tags        "backroom"
      details     "The room is dusty and messy.\n"
 
+- wallBackroom
+     description "solid rock all around"
+     tags        "east", "west", "south", "rock"
+     location    backroom
+     details     "The rock walls are cold and damp.\n"
+     textGo      "Solid rock is blocking the way.\n"
+
 - passageway
-     description "a narrow passageway"
+     description "a narrow passageway. It's cramped in here"
      tags        "passageway"
      details     "The passageway is narrow and dimly lit.\n"
 
-- exitPassageway
-     description "You leave the passageway"
-     tags        "west", "exit", "leave"
-     location    passageway
-     destination chamber
-     details     "The narrow passageway opens up to a large chamber\n"
-     textGo      "You exit the passageway and move to the large chamber\n"
-     open        isAlreadyOpen   
-
 - intoPassageway
-     description "a narrow passageway"
-     tags        "west", "entrance"
+     description "a narrow passageway to the west"
+     tags        "west", "passageway"
      location    backroom
      destination passageway
      details     "The backroom has a small passageway to the west\n"
      textGo      "You walk into the narrow passageway.\n OH NO! The walls have caved in behind you.\n"
-     open        isAlreadyOpen   
+     open        isAlreadyOpen    
+
+- wallPassageway
+     description "damp walls and dimly lit"
+     tags        "north", "south", "rock"
+     location    backroom
+     details     "The rock walls are cold and damp.\n"
+     textGo      "Solid rock is blocking the way.\n"
 
 - chamber
      description "a large chamber, the room smells of death"
      tags        "chamber"
      details     "The chamber is eerily quiet. Is that blood on the floor?\n"
+
+- intoChamber
+     description "an opening to a large chamber"
+     tags        "east", "entrance", "chamber", "enter"
+     location    passageway
+     destination chamber
+     details     "The passageway opens up to a large creepy chamber\n"
+     textGo      "You walk into the large chamber\n"
+     open        isAlreadyOpen     
 
 - exitChamber
      description "a small passageway to the east"
@@ -183,28 +197,60 @@ extern OBJECT objs[];
      textGo      "You exit chamber into the narrow passageway\n"
      open        isAlreadyOpen   
 
-- intoChamber
-     description "you enter the large chamber"
-     tags        "east", "entrance", "chamber", "enter"
-     location    passageway
+- chamberStaircase
+     description "a staircase to the north side of the chamber"
+     tags        "chamberStaircase"
+     details     "The staircase leads up out of the chamber \n"
+
+- intoChamberStaircase
+     description "a staircase leading down to the north"
+     tags        "north", "staircase", "chamberStaircase"
+     location    chamber
+     destination chamberStaircase
+     details     "The staircase leads deeper down\n"
+     textGo      "You walk into the staircase\n"
+     open        isAlreadyOpen  
+
+- exitChamberStaircase
+     description "a small passageway to the east"
+     tags        "east", "exit", "leave"
+     location    chamberStaircase
+     destination passageway
+     details     "There is a narrow passageway at the entrance to the chamber\n"
+     textGo      "You exit chamber into the narrow passageway\n"
+     open        isAlreadyOpen 
+
+- intoChamberFromChamberStaircase
+     description "a entrance to the upper chamber"
+     tags        "east", "exit", "leave"
+     location    chamberStaircase
      destination chamber
-     details     "The passageway opens up to a large creepy chamber\n"
-     textGo      "You walk into the large chamber\n"
-     open        isAlreadyOpen      
+     details     "There is an entrance to the chamber at the top of the staircase\n"
+     textGo      "You exit the staircase into the chamber\n"
+     open        isAlreadyOpen   
 
-- wallPassageway
-     description "damp walls and dimly lit"
-     tags        "north", "south", "rock"
-     location    backroom
-     details     "The rock walls are cold and damp.\n"
-     textGo      "Solid rock is blocking the way.\n"
+- chamberAnteroom
+     description "a small anteroom to the south of the chamber"
+     tags        "chamberAnteroom", "anteroom"
+     details     "The anteroom the backs onto the chamber \n"
 
-- wallBackroom
-     description "solid rock all around"
-     tags        "east", "west", "south", "rock"
-     location    backroom
-     details     "The rock walls are cold and damp.\n"
-     textGo      "Solid rock is blocking the way.\n"
+- intoChamberAnteroom
+     description "an small anteroom to the south"
+     tags        "south", "anteroom", "chamberAnteroom"
+     location    chamber
+     destination chamberAnteroom
+     details     "The anteroom is covered in dust"
+     textGo      "You walk into the chamber's anteroom \n"
+     open        isAlreadyOpen  
+
+- exitChamberAnteroom
+     description "a large chamber to the north"
+     tags        "north", "exit", "leave", "exit anteroom"
+     location    chamberAnteroom
+     destination chamber
+     details     "There is a large entrance to the chamber\n"
+     textGo      "You exit anteroom into the chamber\n"
+     open        isAlreadyOpen 
 
 - openDoorToBackroom
      description "an open door to the south"
@@ -281,4 +327,11 @@ extern OBJECT objs[];
      tags        "key", "tiny key"
      location    cave
      details     "The key is really small and shiny.\n"
+     weight      1
+
+- dustyBook
+     description "a dusty old book "
+     tags        "book", "dusty book"
+     location    chamberAnteroom
+     details     "The book is old and dusty. You cannot understand the writing \n"
      weight      1

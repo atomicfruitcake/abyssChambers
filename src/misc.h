@@ -2,6 +2,7 @@ typedef enum {
    distPlayer,
    distHeld,
    distHeldContained,
+   distChestInRoom,
    distLocation,
    distHere,
    distHereContained,
