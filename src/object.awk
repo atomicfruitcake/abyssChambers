@@ -28,6 +28,7 @@ BEGIN {
    prop["close"]       = "cannotBeClosed";
    prop["lock"]        = "cannotBeLocked";
    prop["unlock"]      = "cannotBeUnlocked";
+   prop["lit"]         = "0";
 }
 
 obj && /^[ \t]+[a-z]/ {
@@ -95,7 +96,8 @@ function outputRecord(separator)
          print "\t\t" prop["open"] ",";
          print "\t\t" prop["close"] ",";
          print "\t\t" prop["lock"] ",";
-         print "\t\t" prop["unlock"];
+         print "\t\t" prop["unlock"] ",";
+         print "\t\t" prop["lit"];
          print "\t}" separator;
          delete prop;
       }

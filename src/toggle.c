@@ -45,6 +45,18 @@ const char * toggleBackdoor(OBJECT * obj) {
     return "OK.\n";
 }
 
+const char * toggleLibaryDoor(OBJECT * obj) {
+    swapLocations(openDoorToLibrary, closedDoorToLibrary);
+    swapLocations(openDoorToAnteroom, closedDoorToAnteroom);
+    return "OK.\n";
+}
+
+const char * toggleWitchesLairDoor(OBJECT * obj) {
+    swapLocations(openDoorToWitchesLair, closedDoorToWitchesLair);
+    swapLocations(openDoorToHauntedVaults, closedDoorToHauntedVaults);
+    return "OK.\n";
+}
+
 const char * toggleBox(OBJECT * obj) {
     swapLocations(openBox, closedBox);
     return "OK.\n";

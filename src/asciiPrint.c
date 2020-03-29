@@ -21,3 +21,7 @@ void printAscii(const char * asciiFile) {
 void printIntro() {
     printAscii("./src/ascii/intro.txt");
 }
+
+void printLibrary() {
+	printAscii("./src/ascii/library.txt");
+}

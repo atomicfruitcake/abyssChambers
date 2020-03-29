@@ -30,8 +30,7 @@ DISTANCE distanceTo(OBJECT * obj) {
         distNotHere;
 }
 
-static int nounIsInTags(const char * noun,
-    const char ** tags) {
+int nounIsInTags(const char * noun, const char ** tags) {
     while ( * tags != NULL) {
         if (strcmp(noun, * tags++) == 0) return 1;
     }
@@ -76,8 +75,7 @@ int listObjectsAtLocation(OBJECT * location) {
     return count;
 }
 
-int inCurrentInventory(OBJECT * container,
-    const char * item) {
+int inCurrentInventory(OBJECT * container, const char * item) {
     OBJECT * obj;
     forEachObject(obj) {
         if (obj -> location == container) {

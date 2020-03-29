@@ -12,5 +12,7 @@ extern const char *isStillOpen(OBJECT *obj);
 extern const char *isStillLocked(OBJECT *obj);
 
 extern const char *toggleBackdoor(OBJECT *obj);
+extern const char *toggleLibaryDoor(OBJECT *obj);
+extern const char *toggleWitchesLairDoor(OBJECT *obj);
 extern const char *toggleBox(OBJECT *obj);
 extern const char *toggleBoxLock(OBJECT *obj);

@@ -4,8 +4,13 @@
 
 #include "misc.h"
 
+#include "asciiPrint.h"
+
 static void moveObject(const char * noun, OBJECT * from, OBJECT * to) {
     OBJECT * obj = parseObject(noun);
+    if (nounIsInTags("ars goetia", obj->tags)) {
+        printLibrary();
+    }
     if (obj == NULL) {
         printf("I don't understand what item you mean.\n");
     } else if (from != obj -> location) {
