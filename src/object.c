@@ -781,7 +781,7 @@ OBJECT objs[] = {
 	},
 	{	/* 35 = openDoorToWitchesLair */
 		alwaysTrue,
-		 "An rusty door to the north. You hear cackling from inside",
+		 "a rusty metal door to the north. You hear cackling from inside",
 		tags35,
 		NULL,
 		 witchesLair,
@@ -801,7 +801,7 @@ OBJECT objs[] = {
 	},
 	{	/* 36 = closedDoorToWitchesLair */
 		alwaysTrue,
-		 "An rusty metal door to the north. It's closed",
+		 "a rusty metal door to the north. It's closed",
 		tags36,
 		 hauntedVaults,
 		NULL,
@@ -821,7 +821,7 @@ OBJECT objs[] = {
 	},
 	{	/* 37 = openDoorToHauntedVaults */
 		alwaysTrue,
-		 "An rusty metal door to the south leading to the vaults. It's open",
+		 "a rusty metal door to the south leading to the vaults. It's open",
 		tags37,
 		NULL,
 		 hauntedVaults,
@@ -841,7 +841,7 @@ OBJECT objs[] = {
 	},
 	{	/* 38 = closedDoorToHauntedVaults */
 		alwaysTrue,
-		 "An ornate wooden door to the west leading to the chamber anteroom. It's open",
+		 "an ornate wooden door to the west leading to the chamber anteroom. It's open",
 		tags38,
 		 witchesLair,
 		NULL,
@@ -861,7 +861,7 @@ OBJECT objs[] = {
 	},
 	{	/* 39 = tortureChamber */
 		alwaysTrue,
-		 "a small chamber filled with torture equipment to the south",
+		 "a small chamber filled with torture equipment",
 		tags39,
 		NULL,
 		NULL,
@@ -881,7 +881,7 @@ OBJECT objs[] = {
 	},
 	{	/* 40 = intoTortureChamber */
 		alwaysTrue,
-		 "a archway leads to the torture chamber to the south",
+		 "an archway leading to the torture chamber to the south",
 		tags40,
 		 hauntedVaults,
 		 tortureChamber,
@@ -901,7 +901,7 @@ OBJECT objs[] = {
 	},
 	{	/* 41 = exitTortureChamber */
 		alwaysTrue,
-		 "an archway leads to the haunted vaults",
+		 "an archway leading to the haunted vaults to the north",
 		tags41,
 		 tortureChamber,
 		NULL,
@@ -1101,7 +1101,7 @@ OBJECT objs[] = {
 	},
 	{	/* 51 = openDoorToLibrary */
 		alwaysTrue,
-		 "An ornate wooden door to the east. It's open",
+		 "an ornate wooden door to the east. It's open",
 		tags51,
 		NULL,
 		 library,
@@ -1121,7 +1121,7 @@ OBJECT objs[] = {
 	},
 	{	/* 52 = closedDoorToLibrary */
 		alwaysTrue,
-		 "An ornate wooden door to the east. It's closed",
+		 "an ornate wooden door to the east. It's closed",
 		tags52,
 		 chamberAnteroom,
 		NULL,
@@ -1141,7 +1141,7 @@ OBJECT objs[] = {
 	},
 	{	/* 53 = openDoorToAnteroom */
 		alwaysTrue,
-		 "An ornate wooden door to the west leading to the chamber anteroom. It's open",
+		 "an ornate wooden door to the west leading to the chamber anteroom. It's open",
 		tags53,
 		NULL,
 		 chamberAnteroom,
@@ -1381,7 +1381,7 @@ OBJECT objs[] = {
 	},
 	{	/* 65 = bookArsGoetia */
 		alwaysTrue,
-		 "the ars goetia, a grimoire book on demonology",
+		 "You see the ars goetia, a grimoire book on demonology",
 		tags65,
 		 library,
 		NULL,

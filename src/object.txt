@@ -270,7 +270,7 @@ extern OBJECT objs[];
      open        isAlreadyOpen 
 
 - hauntedVaults
-     description "ark and dingy vaults. You can barely see a thing"
+     description "dark and dingy vaults. You can barely see a thing"
      tags        "vaults", "hauntedVaults"
      details     "The bottom of the staircase leads to the vaults\n"
 
@@ -432,7 +432,7 @@ extern OBJECT objs[];
      details     "The books in this library look strange, it's unusually cold in here \n"
 
 - openDoorToLibrary
-     description "An ornate wooden door to the east. It's open"
+     description "an ornate wooden door to the east. It's open"
      tags        "east", "door", "doorway", "library door"
      destination library
      details     "The door is open.\n"
@@ -441,7 +441,7 @@ extern OBJECT objs[];
      close       toggleBackdoor
 
 - closedDoorToLibrary
-     description "An ornate wooden door to the east. It's closed"
+     description "an ornate wooden door to the east. It's closed"
      tags        "east", "door", "doorway", "library door"
      location    chamberAnteroom
      prospect    library
@@ -451,7 +451,7 @@ extern OBJECT objs[];
      close       isAlreadyClosed
 
 - openDoorToAnteroom
-     description "An ornate wooden door to the west leading to the chamber anteroom. It's open"
+     description "an ornate wooden door to the west leading to the chamber anteroom. It's open"
      tags        "west", "door", "doorway", "library door"
      destination chamberAnteroom
      details     "The door is open.\n"
