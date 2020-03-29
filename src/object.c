@@ -24,7 +24,7 @@ static const char *tags17[] = { "east", "north", "rock", NULL};
 static const char *tags18[] = { "backroom", NULL};
 static const char *tags19[] = { "east", "west", "south", "rock", NULL};
 static const char *tags20[] = { "passageway", NULL};
-static const char *tags21[] = { "west", "passageway", NULL};
+static const char *tags21[] = { "passageway", NULL};
 static const char *tags22[] = { "north", "south", "rock", NULL};
 static const char *tags23[] = { "east", NULL};
 static const char *tags24[] = { "chamber", NULL};
@@ -506,7 +506,7 @@ OBJECT objs[] = {
 		 backroom,
 		 passageway,
 		 passageway,
-		 "The backroom has a small passageway to the west\n",
+		 "The backroom has a small passageway\n",
 		"You see",
 		 "You walk into the narrow passageway.\n OH NO! The walls have caved in behind you.\n",
 		99,
@@ -921,7 +921,7 @@ OBJECT objs[] = {
 	},
 	{	/* 42 = deepHauntedVaults */
 		alwaysTrue,
-		 "a small chamber filled with torture equipment to the south",
+		 "a deeper and darker section of the haunted vaults",
 		tags42,
 		NULL,
 		NULL,
@@ -941,7 +941,7 @@ OBJECT objs[] = {
 	},
 	{	/* 43 = intoDeepHauntedVaults */
 		condition43,
-		 "a deeper section of the haunted vaults",
+		 "a deeper section of the haunted vaults to the east",
 		tags43,
 		 hauntedVaults,
 		 deepHauntedVaults,
@@ -961,7 +961,7 @@ OBJECT objs[] = {
 	},
 	{	/* 44 = intoDeepHauntedVaultsBlocked */
 		condition44,
-		 "a deeper section of the haunted vaults",
+		 "a deeper section of the haunted vaults to the east",
 		tags44,
 		 hauntedVaults,
 		 deepHauntedVaults,

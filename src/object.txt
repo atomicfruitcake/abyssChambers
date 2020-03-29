@@ -190,10 +190,10 @@ extern OBJECT objs[];
 
 - intoPassageway
      description "a narrow passageway to the west"
-     tags        "west", "passageway"
+     tags        "passageway"
      location    backroom
      destination passageway
-     details     "The backroom has a small passageway to the west\n"
+     details     "The backroom has a small passageway\n"
      textGo      "You walk into the narrow passageway.\n OH NO! The walls have caved in behind you.\n"
      open        isAlreadyOpen    
 
@@ -359,7 +359,7 @@ extern OBJECT objs[];
      open        isAlreadyOpen  
 
 - deepHauntedVaults
-     description "a deeper and darker section of the haunted vauls"
+     description "a deeper and darker section of the haunted vaults"
      tags        "torture chamber", "hauntedVaults"
      details     "The bottom of the staircase leads to the vaults\n"
 
@@ -375,7 +375,7 @@ extern OBJECT objs[];
 
 - intoDeepHauntedVaultsBlocked
      condition   { return torch->lit == 1 || torch->location != player->location; }
-     description "a deeper section of the haunted vaults"
+     description "a deeper section of the haunted vaults to the east"
      tags        "east", "deeper", "deep"
      location    hauntedVaults
      destination deepHauntedVaults

@@ -20,6 +20,7 @@ void executeLightTorch() {
   if (player -> location == witchesLair) {
 	  torch -> lit = 0;
 	  torch -> description = "A flaming torch allowing you to travel to darker places";
+	  printf("You have lit the torch. You can now venture into darker places");
 	  return;
   }
   printf("Cannot light the torch here, there is no flame around");
