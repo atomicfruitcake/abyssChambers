@@ -62,6 +62,17 @@ const char * toggleBox(OBJECT * obj) {
     return "OK.\n";
 }
 
+const char * toggleCorpse(OBJECT * obj) {
+    swapLocations(openStitchedCorpse, closedStitchedCorpse);
+    return "OK.\n";
+}
+
+const char * toggleGuardRoomDoor(OBJECT * obj) {
+    swapLocations(openDoorToGuardRoom, closedDoorToGuardRoom);
+    swapLocations(openDoorToDeepVaults, closedDoorToDeepVaults);
+    return "OK.\n";
+}
+
 const char * toggleBoxLock(OBJECT * obj) {
     if (keyForBox -> location == player) {
         swapLocations(closedBox, lockedBox);

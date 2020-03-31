@@ -54,6 +54,13 @@ extern OBJECT objs[];
      details     "The shiny coin seems to be a rare and priceless artefact.\n"
      weight      1
 
+- bloodyKey
+     description "a bloody key"
+     tags        "key", "bloody key"
+     location    openStitchedCorpse
+     details     "The key has been taken from inside a corpse.\n"
+     weight      1
+
 - sword
      description "a basic sword"
      tags        "sword", "basic sword"
@@ -109,6 +116,15 @@ extern OBJECT objs[];
      capacity    20
      attack      50
 
+- demonWarden
+     description "The warden has turned into a demon. I don't think it's noticed you yet"
+     tags        "warden", "demon warden"
+     location    wardenOffice
+     details     "The demon looks dazed. It has giant claws and teeth ready to tear flesh\n"
+     contents    "It has"
+     health      20
+     capacity    20
+     attack      60
 
 - exitCopse
      description "a field to the south"
@@ -391,6 +407,95 @@ extern OBJECT objs[];
      textGo      "You go to the central vaults\n"
      open        isAlreadyOpen  
 
+- bodyPit
+     description "a large pit of rotting corpses"
+     tags        "body pit", "pit"
+     details     "The bodies appear to have been tortured ritually. Who would do such a thing?\n"
+
+- intoBodyPit
+     description "a vile stench is coming from the north"
+     tags        "north", "pit", "body pit"
+     location    deepCentralVaults
+     destination bodyPit
+     details     "The place reeks of rotting corpses.\n"
+     textGo      "You head north following the wretched stench\n"
+     open        isAlreadyOpen  
+
+- exitBodyPit
+     description "the deep vaults are to the south"
+     tags        "south", "vaults", "deep"
+     location    bodyPit
+     destination deepCentralVaults
+     details     "The dark vaults are south of here\n"
+     textGo      "You go to the deep vaults \n"
+     open        isAlreadyOpen  
+
+- guardRoom
+     description "a room for the torturers to rest"
+     tags        "guardRoom"
+     details     "The room is filled with chains and torture devices\n"
+
+- openDoorToGuardRoom
+     description "a iron door with 'guard room' enscribed on it to the south"
+     tags        "south", "door", "doorway", "guard room door"
+     destination guardRoom
+     details     "The door is open.\n"
+     textGo      "You walk through the door into the guard room\n"
+     open        isAlreadyOpen
+     close       toggleGuardRoomDoor
+
+- closedDoorToGuardRoom
+     description "a iron door with 'guard room' enscribed on it, it's closed"
+     tags        "south", "door", "doorway", "guard room door"
+     location    deepCentralVaults
+     prospect    guardRoom
+     details     "The door is closed.\n"
+     textGo      "The door to the guard room is closed.\n"
+     open        toggleGuardRoomDoor
+     close       isAlreadyClosed
+
+- openDoorToDeepVaults
+     description "a iron door with 'To Vaults' enscribed on it"
+     tags        "north", "door", "doorway", "vault door"
+     destination deepCentralVaults
+     details     "The door is open.\n"
+     textGo      "You walk through the door into the guard room\n"
+     open        isAlreadyOpen
+     close       toggleGuardRoomDoor
+
+- closedDoorToDeepVaults
+     description "a iron door with 'To Vaults' enscribed on it, it's closed"
+     tags        "north", "door", "doorway", "vault door"
+     location    guardRoom
+     prospect    deepCentralVaults
+     details     "The door is closed.\n"
+     textGo      "The door to the deep vaults is closed.\n"
+     open        toggleGuardRoomDoor
+     close       isAlreadyClosed
+
+- wardenOffice
+     description "the Warden's office"
+     tags        "office", "wardens office"
+     details     "The Warden must manage the operations from here. What were they trying to do?\n"
+
+- intoWardenOffice
+     description "a vile stench is coming from the north"
+     tags        "south", "office", "wardens office"
+     location    guardRoom
+     destination wardenOffice
+     details     "The room has an ornate desk with a locked box on top\n"
+     textGo      "You head south into the warden's office\n"
+     open        isAlreadyOpen  
+
+- exitWardenOffice
+     description "the deep vaults are to the south"
+     tags        "north", "guard room"
+     location    wardenOffice
+     destination guardRoom
+     details     "The guard room is just north of here\n"
+     textGo      "You walk into the guard room \n"
+     open        isAlreadyOpen  
+
 - chamberAnteroom
      description "a small anteroom to the south of the chamber"
      tags        "chamberAnteroom", "anteroom"
@@ -545,13 +650,6 @@ extern OBJECT objs[];
      details     "The key is really small and shiny.\n"
      weight      1
 
-- oldIronKey
-     description "an old iron key"
-     tags        "key", "old key", "iron key", "old iron key"
-     location    tortureChamber
-     details     "The key old and rusty. Perhaps someone was chained up with this\n"
-     weight      1
-
 - torch
      description "an unlit torch"
      tags        "torch", "unlit torch"
@@ -566,6 +664,24 @@ extern OBJECT objs[];
      location    witchesLair
      details     "The cauldron is bubbling with a fire underneath"
      weight      999
+
+- openStitchedCorpse
+     description "a corpse with it's chest recently stitched together"
+     tags        "corpse", "stiched corpse", "body"
+     location    bodyPit
+     details     "The corpse appears to have had it's chest stiched back together recently. \n This is a fresh body\n"
+     weight      999
+     open        toggleCorpse
+     close       isAlreadyClosed
+
+- closedStitchedCorpse
+     description "a corpse with it's chest recently stitched together"
+     tags        "corpse", "stiched corpse", "body"
+     location    bodyPit
+     details     "I've ripped open the chest of the corpse revealing the insides\n"
+     weight      999
+     open        isAlreadyOpen
+     close       toggleCorpse
 
 - bookArsGoetia
      description "the ars goetia, a grimoire book on demonology"
