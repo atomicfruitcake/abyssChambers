@@ -117,7 +117,7 @@ extern OBJECT objs[];
      attack      50
 
 - demonWarden
-     description "The warden has turned into a demon. I don't think it's noticed you yet"
+     description "The warden has turned into a demon. It's feasting on a body in the corner and hasn't noticed you"
      tags        "warden", "demon warden"
      location    wardenOffice
      details     "The demon looks dazed. It has giant claws and teeth ready to tear flesh\n"
@@ -428,6 +428,29 @@ extern OBJECT objs[];
      destination deepCentralVaults
      details     "The dark vaults are south of here\n"
      textGo      "You go to the deep vaults \n"
+     open        isAlreadyOpen  
+
+- ladderRoom
+     description "A ladder between the vaults and the cathedral"
+     tags        "ladder"
+     details     "The bodies appear to have been tortured ritually. Who would do such a thing?\n"
+
+- intoladderRoom
+     description "a ladder leading even deeper"
+     tags        "east", "ladder"
+     location    deepCentralVaults
+     destination ladderRoom
+     details     "The ladder goes down deeper into the earth\n"
+     textGo      "You head east and start climbing down the ladder\n"
+     open        isAlreadyOpen  
+
+- exitladderRoomVaults
+     description "the deep vaults at the top of the ladder on the west side"
+     tags        "west", "vaults", "up"
+     location    ladderRoom
+     destination deepCentralVaults
+     details     "The ladder is creeking as you use it"
+     textGo      "You climb the ladder into the vaults\n"
      open        isAlreadyOpen  
 
 - guardRoom
