@@ -74,8 +74,22 @@ const char * toggleGuardRoomDoor(OBJECT * obj) {
 }
 
 const char * toggleBoxLock(OBJECT * obj) {
-    if (keyForBox -> location == player) {
+    if (keyForIronChest -> location == player) {
         swapLocations(closedBox, lockedBox);
+        return "OK.\n";
+    } else {
+        return "You don't have a key.\n";
+    }
+}
+
+const char * toggleIronChest(OBJECT * obj) {
+    swapLocations(openIronChest, closedIronChest);
+    return "OK.\n";
+}
+
+const char * toggleIronChestLock(OBJECT * obj) {
+    if (keyForIronChest -> location == player) {
+        swapLocations(closedIronChest, lockedIronChest);
         return "OK.\n";
     } else {
         return "You don't have a key.\n";

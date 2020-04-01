@@ -18,3 +18,6 @@ extern const char *toggleGuardRoomDoor(OBJECT *obj);
 extern const char *toggleCorpse(OBJECT *obj);
 extern const char *toggleBox(OBJECT *obj);
 extern const char *toggleBoxLock(OBJECT *obj);
+extern const char *toggleIronChest(OBJECT *obj);
+extern const char *toggleIronChestLock(OBJECT *obj);
+

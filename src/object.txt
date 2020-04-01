@@ -54,13 +54,6 @@ extern OBJECT objs[];
      details     "The shiny coin seems to be a rare and priceless artefact.\n"
      weight      1
 
-- bloodyKey
-     description "a bloody key"
-     tags        "key", "bloody key"
-     location    openStitchedCorpse
-     details     "The key has been taken from inside a corpse.\n"
-     weight      1
-
 - sword
      description "a basic sword"
      tags        "sword", "basic sword"
@@ -119,7 +112,7 @@ extern OBJECT objs[];
 - demonWarden
      description "The warden has turned into a demon. It's feasting on a body in the corner and hasn't noticed you"
      tags        "warden", "demon warden"
-     location    wardenOffice
+     location    wardensOffice
      details     "The demon looks dazed. It has giant claws and teeth ready to tear flesh\n"
      contents    "It has"
      health      20
@@ -451,6 +444,29 @@ extern OBJECT objs[];
      destination deepCentralVaults
      details     "The ladder is creeking as you use it"
      textGo      "You climb the ladder into the vaults\n"
+     open        isAlreadyOpen 
+
+- catacombs
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombs"
+     details     "The is space for more bodies here. Can I hear footsteps?\n"
+
+- intoCatacombs
+     description "an ancient web of catacombs to the east"
+     tags        "east", "catacombs"
+     location    ladderRoom
+     destination catacombs
+     details     "The ladder leads to the catacombs\n"
+     textGo      "You head east and enter the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsLadder
+     description "the deep vaults at the top of the ladder on the west side"
+     tags        "west", "ladder"
+     location    catacombs
+     destination ladderRoom
+     details     "The ladder used to connect the vaults to the catacombs"
+     textGo      "You start climbing the ladder leading to the vaults\n"
      open        isAlreadyOpen  
 
 - guardRoom
@@ -496,16 +512,16 @@ extern OBJECT objs[];
      open        toggleGuardRoomDoor
      close       isAlreadyClosed
 
-- wardenOffice
+- wardensOffice
      description "the Warden's office"
      tags        "office", "wardens office"
      details     "The Warden must manage the operations from here. What were they trying to do?\n"
 
-- intoWardenOffice
+- intoWardensOffice
      description "a vile stench is coming from the north"
      tags        "south", "office", "wardens office"
      location    guardRoom
-     destination wardenOffice
+     destination wardensOffice
      details     "The room has an ornate desk with a locked box on top\n"
      textGo      "You head south into the warden's office\n"
      open        isAlreadyOpen  
@@ -513,7 +529,7 @@ extern OBJECT objs[];
 - exitWardenOffice
      description "the deep vaults are to the south"
      tags        "north", "guard room"
-     location    wardenOffice
+     location    wardensOffice
      destination guardRoom
      details     "The guard room is just north of here\n"
      textGo      "You walk into the guard room \n"
@@ -666,6 +682,45 @@ extern OBJECT objs[];
      lock        isAlreadyLocked
      unlock      toggleBoxLock
 
+- openIronChest
+     description "an iron chest"
+     tags        "chest", "iron chest"
+     details     "The chest is locked.\n"
+     weight      5
+     capacity    10
+     open        isAlreadyOpen
+     close       toggleIronChest
+     lock        isStillOpen
+     unlock      isAlreadyOpen
+
+- closedIronChest
+     description "an iron chest"
+     tags        "chest", "iron chest"
+     details     "The chest is closed.\n"
+     weight      5
+     open        toggleIronChest
+     close       isAlreadyClosed
+     lock        toggleIronChestLock
+     unlock      isAlreadyUnlocked
+
+- lockedIronChest
+     description "an iron chest"
+     tags        "chest", "iron chest"
+     location    wardensOffice
+     details     "The chest is locked.\n"
+     weight      5
+     open        isStillLocked
+     close       isAlreadyClosed
+     lock        isAlreadyLocked
+     unlock      toggleIronChestLock
+
+- keyForIronChest
+     description "a bloody iron key"
+     tags        "key", "bloody key", "iron key"
+     location    openStitchedCorpse
+     details     "The key has been taken from inside a corpse.\n"
+     weight      1
+
 - keyForBox
      description "a tiny key"
      tags        "key", "tiny key"
@@ -711,4 +766,11 @@ extern OBJECT objs[];
      tags        "book", "demon book", "grimoire", "ars goetia"
      location    library
      details     "This book appears to be grimoire.  \n"
+     weight      1
+
+- bookArsTheurgiaGoetia
+     description "the ars theurgia goetia, a grimoire book on demonology"
+     tags        "book", "demon book", "grimoire", "ars theurgia goetia"
+     location    openIronChest
+     details     "This is another grimoire on demons\n"
      weight      1
