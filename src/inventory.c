@@ -11,6 +11,9 @@ static void moveObject(const char * noun, OBJECT * from, OBJECT * to) {
     if (nounIsInTags("ars goetia", obj->tags)) {
         printLibrary();
     }
+    if (nounIsInTags("ars theurgia goetia", obj->tags)) {
+        printIronChest();
+    }
     if (obj == NULL) {
         printf("I don't understand what item you mean.\n");
     } else if (from != obj -> location) {

@@ -25,3 +25,7 @@ void printIntro() {
 void printLibrary() {
 	printAscii("./src/ascii/library.txt");
 }
+
+void printIronChest() {
+	printAscii("./src/ascii/ironChest.txt");
+}
