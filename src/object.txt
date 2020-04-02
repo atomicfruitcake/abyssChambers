@@ -446,27 +446,283 @@ extern OBJECT objs[];
      textGo      "You climb the ladder into the vaults\n"
      open        isAlreadyOpen 
 
-- catacombs
+- catacombsEast
      description "A web of deep tunnels filled with resting places for the dead"
-     tags        "catacombs"
+     tags        "catacombsEast"
      details     "The is space for more bodies here. Can I hear footsteps?\n"
 
-- intoCatacombs
+- intoCatacombsEast
      description "an ancient web of catacombs to the east"
-     tags        "east", "catacombs"
+     tags        "east", "catacombsEast"
      location    ladderRoom
-     destination catacombs
+     destination catacombsEast
      details     "The ladder leads to the catacombs\n"
      textGo      "You head east and enter the ancient catacombs\n"
      open        isAlreadyOpen  
 
-- exitCatacombsLadder
+- exitCatacombsEastLadder
      description "the deep vaults at the top of the ladder on the west side"
      tags        "west", "ladder"
-     location    catacombs
+     location    catacombsEast
      destination ladderRoom
      details     "The ladder used to connect the vaults to the catacombs"
      textGo      "You start climbing the ladder leading to the vaults\n"
+     open        isAlreadyOpen
+
+- catacombsNorthEast
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsNorthEast"
+     details     "The is space for more bodies here. There is something else in here.\n"
+
+- intoCatacombsNorthEast
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
+     location    catacombsEast
+     destination catacombsNorthEast
+     details     "The catacombs extend to the north\n"
+     textGo      "You head north through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsNorthEastToEast
+     description "more catacombs to the south"
+     tags        "south", "catacombs south"
+     location    catacombsNorthEast
+     destination catacombsEast
+     details     "The catacombs extend to the south"
+     textGo      "You head south through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsSouthEast
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsSouthEast"
+     details     "The is space for more bodies here. There is something else in here.\n"
+
+- intoCatacombsSouthEast
+     description "more catacombs to the south"
+     tags        "north", "catacombs south"
+     location    catacombsEast
+     destination catacombsSouthEast
+     details     "The catacombs extend to the south\n"
+     textGo      "You head south through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsSouthEastToEast
+     description "more catacombs to the south"
+     tags        "south", "catacombs south"
+     location    catacombsSouthEast
+     destination catacombsEast
+     details     "The catacombs extend to the north"
+     textGo      "You head north through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsCentral
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsCentral"
+     details     "The is space for more bodies here. There is something else in here.\n"
+
+- intoCatacombsCentralFromEast
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
+     location    catacombsEast
+     destination catacombsCentral
+     details     "The catacombs extend to the east\n"
+     textGo      "You head east through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsCentralToEast
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
+     location    catacombsCentral
+     destination catacombsEast
+     details     "The catacombs extend to the west"
+     textGo      "You head west through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsNorth
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsNorth"
+     details     "The is space for more bodies here. There is an uneasy presence.\n"
+
+- intoCatacombsNorthFromNorthEast
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
+     location    catacombsNorthEast
+     destination catacombsNorth
+     details     "The catacombs extend to the east\n"
+     textGo      "You head east through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsNorthEastToNorth
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
+     location    catacombsNorth
+     destination catacombsNorthEast
+     details     "The catacombs extend to the west"
+     textGo      "You head west through the catacombs\n"
+     open        isAlreadyOpen  
+
+- intoCatacombsCentralFromNorth
+     description "more catacombs to the south"
+     tags        "south", "catacombs sotuh"
+     location    catacombsNorth
+     destination catacombsCentral
+     details     "The catacombs extend to the south\n"
+     textGo      "You head east through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsNorthToNorthEast
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
+     location    catacombsNorth
+     destination catacombsNorthEast
+     details     "The catacombs extend to the north"
+     textGo      "You head north through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsSouth
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsSouth"
+     details     "The is space for more bodies here. There is an uneasy presence.\n"
+
+- intoCatacombsSouthFromSouthEast
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
+     location    catacombsSouthEast
+     destination catacombsSouth
+     details     "The catacombs extend to the east\n"
+     textGo      "You head east through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsSouthToSouthEast
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
+     location    catacombsSouth
+     destination catacombsSouthEast
+     details     "The catacombs extend to the west"
+     textGo      "You head west through the catacombs\n"
+     open        isAlreadyOpen  
+
+- intoCatacombsCentralFromSouth
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
+     location    catacombsSouth
+     destination catacombsCentral
+     details     "The catacombs extend to the north\n"
+     textGo      "You head north through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsSouthEastFromSouth
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
+     location    catacombsSouth
+     destination catacombsSouthEast
+     details     "The catacombs extend to the west"
+     textGo      "You head west through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsSouthWest
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsSouthWest"
+     details     "The is space for more bodies here. Is something following me?.\n"
+
+- intoCatacombsSouthWestFromSouth
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
+     location    catacombsSouth
+     destination catacombsSouthWest
+     details     "The catacombs extend to the west\n"
+     textGo      "You head west through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsSouthWestToSouth
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
+     location    catacombsSouthWest
+     destination catacombsSouth
+     details     "The catacombs extend to the east"
+     textGo      "You head east through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsNorthWest
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsNorthWest"
+     details     "The is space for more bodies here. Something smells like fresh blood\n"
+
+- intoCatacombsNorthWestFromNorth
+     description "more catacombs to the west"
+     tags        "north", "catacombs north"
+     location    catacombsNorth
+     destination catacombsNorthWest
+     details     "The catacombs extend to the north\n"
+     textGo      "You head west through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsNorthWestToNorth
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
+     location    catacombsNorthWest
+     destination catacombsNorth
+     details     "The catacombs extend to the east"
+     textGo      "You head east through the catacombs\n"
+     open        isAlreadyOpen  
+
+- catacombsWest
+     description "A web of deep tunnels filled with resting places for the dead"
+     tags        "catacombsWestWest"
+     details     "The is space for more bodies here. This place doesn't feel safe\n"
+
+- intoCatacombsWestFromNorthWest
+     description "more catacombs to the south"
+     tags        "south", "catacombs south"
+     location    catacombsNorthWest
+     destination catacombsWest
+     details     "The catacombs extend to the south\n"
+     textGo      "You head south through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsWestToNorthWest
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
+     location    catacombsWest
+     destination catacombsNorthWest
+     details     "The catacombs extend to the north"
+     textGo      "You head north through the catacombs\n"
+     open        isAlreadyOpen  
+
+- intoCatacombsWestFromSouthWest
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
+     location    catacombsSouthWest
+     destination catacombsWest
+     details     "The catacombs extend to the north\n"
+     textGo      "You head north through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsWestToSouthWest
+     description "more catacombs to the south"
+     tags        "south", "catacombs south"
+     location    catacombsWest
+     destination catacombsSouthWest
+     details     "The catacombs extend to the south"
+     textGo      "You head south through the catacombs\n"
+     open        isAlreadyOpen  
+
+- intoCatacombsCentralFromWest
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
+     location    catacombsWest
+     destination catacombsCentral
+     details     "The catacombs extend to the east\n"
+     textGo      "You head east through the ancient catacombs\n"
+     open        isAlreadyOpen  
+
+- exitCatacombsCentralToWest
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
+     location    catacombsCentral
+     destination catacombsWest
+     details     "The catacombs extend to the west"
+     textGo      "You head west through the catacombs\n"
      open        isAlreadyOpen  
 
 - guardRoom
