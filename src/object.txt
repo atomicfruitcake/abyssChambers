@@ -668,7 +668,7 @@ extern OBJECT objs[];
 
 - catacombsWest
      description "A web of deep tunnels filled with resting places for the dead"
-     tags        "catacombsWestWest"
+     tags        "catacombsWest"
      details     "The is space for more bodies here. This place doesn't feel safe\n"
 
 - intoCatacombsWestFromNorthWest
@@ -723,6 +723,29 @@ extern OBJECT objs[];
      destination catacombsWest
      details     "The catacombs extend to the west"
      textGo      "You head west through the catacombs\n"
+     open        isAlreadyOpen  
+
+- forbiddenCrypt
+     description "A large crypt, possibly for an important person"
+     tags        "crypt", "forbidden crypt"
+     details     "The stone door has been smashed to pieces\n"
+
+- intoForbiddenCryptFromCatacombsWest
+     description "the forbidden crypt to the west"
+     tags        "west", "crypt", "forbidden crypt"
+     location    catacombsWest
+     destination forbiddenCrypt
+     details     "The forbidden crypt lie to the east\n"
+     textGo      "You head east into the forbidden crupt\n"
+     open        isAlreadyOpen  
+
+- exitForbiddenCryptToCatacombsWest
+     description "the catacombs lie to the east"
+     tags        "east", "catacombs", "catacombs west"
+     location    forbiddenCrypt
+     destination catacombsWest
+     details     "The catacombs extend to the west"
+     textGo      "You head west into the catacombs\n"
      open        isAlreadyOpen  
 
 - guardRoom
