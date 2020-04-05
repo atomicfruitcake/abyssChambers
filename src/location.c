@@ -34,7 +34,6 @@ static void movePlayer(OBJECT * passage) {
         player -> location = passage -> destination;
         printf("\n");
         executeLook("around");
-        printf("%s\n", player -> location -> description);
     }
 }
 

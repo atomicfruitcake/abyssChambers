@@ -77,75 +77,74 @@ static const char *tags66[] = { "south", "catacombs sotuh", NULL};
 static const char *tags67[] = { "north", "catacombs north", NULL};
 static const char *tags68[] = { "catacombsSouth", NULL};
 static const char *tags69[] = { "east", "catacombs east", NULL};
-static const char *tags70[] = { "west", "catacombs west", NULL};
+static const char *tags70[] = { "east", "catacombs east", NULL};
 static const char *tags71[] = { "north", "catacombs north", NULL};
-static const char *tags72[] = { "west", "catacombs west", NULL};
-static const char *tags73[] = { "catacombsSouthWest", NULL};
-static const char *tags74[] = { "west", "catacombs west", NULL};
-static const char *tags75[] = { "east", "catacombs east", NULL};
-static const char *tags76[] = { "catacombsNorthWest", NULL};
-static const char *tags77[] = { "north", "catacombs north", NULL};
-static const char *tags78[] = { "east", "catacombs east", NULL};
-static const char *tags79[] = { "catacombsWest", NULL};
-static const char *tags80[] = { "south", "catacombs south", NULL};
+static const char *tags72[] = { "catacombsSouthWest", NULL};
+static const char *tags73[] = { "west", "catacombs west", NULL};
+static const char *tags74[] = { "east", "catacombs east", NULL};
+static const char *tags75[] = { "catacombsNorthWest", NULL};
+static const char *tags76[] = { "north", "catacombs north", NULL};
+static const char *tags77[] = { "east", "catacombs east", NULL};
+static const char *tags78[] = { "catacombsWest", NULL};
+static const char *tags79[] = { "south", "catacombs south", NULL};
+static const char *tags80[] = { "north", "catacombs north", NULL};
 static const char *tags81[] = { "north", "catacombs north", NULL};
-static const char *tags82[] = { "north", "catacombs north", NULL};
-static const char *tags83[] = { "south", "catacombs south", NULL};
-static const char *tags84[] = { "east", "catacombs east", NULL};
-static const char *tags85[] = { "west", "catacombs west", NULL};
-static const char *tags86[] = { "north", "catacombs north", NULL};
-static const char *tags87[] = { "south", "catacombs south", NULL};
-static const char *tags88[] = { "west", "catacombs west", NULL};
-static const char *tags89[] = { "west", "ladder", NULL};
-static const char *tags90[] = { "crypt", "forbidden crypt", NULL};
-static const char *tags91[] = { "east", "crypt", "forbidden crypt", NULL};
-static const char *tags92[] = { "west", "catacombs", "catacombs west", NULL};
-static const char *tags93[] = { "room", "chamber", "chamber of rest", NULL};
-static const char *tags94[] = { "south", "chamber", NULL};
-static const char *tags95[] = { "north", "catacombs", "catacombs north", NULL};
-static const char *tags96[] = { "sewer", "hole", "sewer entrance", NULL};
+static const char *tags82[] = { "south", "catacombs south", NULL};
+static const char *tags83[] = { "east", "catacombs east", NULL};
+static const char *tags84[] = { "west", "catacombs west", NULL};
+static const char *tags85[] = { "north", "catacombs north", NULL};
+static const char *tags86[] = { "south", "catacombs south", NULL};
+static const char *tags87[] = { "east", "catacombs east", NULL};
+static const char *tags88[] = { "west", "ladder", NULL};
+static const char *tags89[] = { "crypt", "forbidden crypt", NULL};
+static const char *tags90[] = { "east", "crypt", "forbidden crypt", NULL};
+static const char *tags91[] = { "west", "catacombs", "catacombs west", NULL};
+static const char *tags92[] = { "room", "chamber", "chamber of rest", NULL};
+static const char *tags93[] = { "south", "chamber", NULL};
+static const char *tags94[] = { "north", "catacombs", "catacombs north", NULL};
+static const char *tags95[] = { "sewer", "hole", "sewer entrance", NULL};
+static const char *tags96[] = { "gate", "door", "sewer gate", NULL};
 static const char *tags97[] = { "gate", "door", "sewer gate", NULL};
-static const char *tags98[] = { "gate", "door", "sewer gate", NULL};
+static const char *tags98[] = { "gate", "sewer gate", "catatcombs", NULL};
 static const char *tags99[] = { "gate", "sewer gate", "catatcombs", NULL};
-static const char *tags100[] = { "gate", "sewer gate", "catatcombs", NULL};
-static const char *tags101[] = { "guardRoom", NULL};
+static const char *tags100[] = { "guardRoom", NULL};
+static const char *tags101[] = { "south", "door", "doorway", "guard room door", NULL};
 static const char *tags102[] = { "south", "door", "doorway", "guard room door", NULL};
-static const char *tags103[] = { "south", "door", "doorway", "guard room door", NULL};
+static const char *tags103[] = { "north", "door", "doorway", "vault door", NULL};
 static const char *tags104[] = { "north", "door", "doorway", "vault door", NULL};
-static const char *tags105[] = { "north", "door", "doorway", "vault door", NULL};
-static const char *tags106[] = { "office", "wardens office", NULL};
-static const char *tags107[] = { "south", "office", "wardens office", NULL};
-static const char *tags108[] = { "north", "guard room", NULL};
-static const char *tags109[] = { "chamberAnteroom", "anteroom", NULL};
-static int condition110(OBJECT *obj)  { return skeletonGuard -> health <= 0; }
+static const char *tags105[] = { "office", "wardens office", NULL};
+static const char *tags106[] = { "south", "office", "wardens office", NULL};
+static const char *tags107[] = { "north", "guard room", NULL};
+static const char *tags108[] = { "chamberAnteroom", "anteroom", NULL};
+static int condition109(OBJECT *obj)  { return skeletonGuard -> health <= 0; }
+static const char *tags109[] = { "south", "anteroom", "chamberAnteroom", NULL};
+static int condition110(OBJECT *obj)  { return skeletonGuard -> health > 0; }
 static const char *tags110[] = { "south", "anteroom", "chamberAnteroom", NULL};
-static int condition111(OBJECT *obj)  { return skeletonGuard -> health > 0; }
-static const char *tags111[] = { "south", "anteroom", "chamberAnteroom", NULL};
-static const char *tags112[] = { "north", "exit", "leave", "exit anteroom", NULL};
-static const char *tags113[] = { "chamberAnteroom", "anteroom", NULL};
+static const char *tags111[] = { "north", "exit", "leave", "exit anteroom", NULL};
+static const char *tags112[] = { "chamberAnteroom", "anteroom", NULL};
+static const char *tags113[] = { "east", "door", "doorway", "library door", NULL};
 static const char *tags114[] = { "east", "door", "doorway", "library door", NULL};
-static const char *tags115[] = { "east", "door", "doorway", "library door", NULL};
-static const char *tags116[] = { "west", "door", "doorway", "library door", NULL};
-static const char *tags117[] = { "west", "door", "doorway", NULL};
+static const char *tags115[] = { "west", "door", "doorway", "library door", NULL};
+static const char *tags116[] = { "west", "door", "doorway", NULL};
+static const char *tags117[] = { "south", "door", "doorway", NULL};
 static const char *tags118[] = { "south", "door", "doorway", NULL};
-static const char *tags119[] = { "south", "door", "doorway", NULL};
+static const char *tags119[] = { "north", "door", "doorway", NULL};
 static const char *tags120[] = { "north", "door", "doorway", NULL};
-static const char *tags121[] = { "north", "door", "doorway", NULL};
+static const char *tags121[] = { "box", "wooden box", NULL};
 static const char *tags122[] = { "box", "wooden box", NULL};
 static const char *tags123[] = { "box", "wooden box", NULL};
-static const char *tags124[] = { "box", "wooden box", NULL};
+static const char *tags124[] = { "chest", "iron chest", NULL};
 static const char *tags125[] = { "chest", "iron chest", NULL};
 static const char *tags126[] = { "chest", "iron chest", NULL};
-static const char *tags127[] = { "chest", "iron chest", NULL};
-static const char *tags128[] = { "key", "bloody key", "iron key", NULL};
-static const char *tags129[] = { "key", "tiny key", NULL};
-static const char *tags130[] = { "key", "small key", NULL};
-static const char *tags131[] = { "torch", "unlit torch", NULL};
-static const char *tags132[] = { "cauldron", "bubbling cauldron", NULL};
+static const char *tags127[] = { "key", "bloody key", "iron key", NULL};
+static const char *tags128[] = { "key", "tiny key", NULL};
+static const char *tags129[] = { "key", "small key", NULL};
+static const char *tags130[] = { "torch", "unlit torch", NULL};
+static const char *tags131[] = { "cauldron", "bubbling cauldron", NULL};
+static const char *tags132[] = { "corpse", "stiched corpse", "body", NULL};
 static const char *tags133[] = { "corpse", "stiched corpse", "body", NULL};
-static const char *tags134[] = { "corpse", "stiched corpse", "body", NULL};
-static const char *tags135[] = { "book", "demon book", "grimoire", "ars goetia", NULL};
-static const char *tags136[] = { "book", "demon book", "grimoire", "ars theurgia goetia", NULL};
+static const char *tags134[] = { "book", "demon book", "grimoire", "ars goetia", NULL};
+static const char *tags135[] = { "book", "demon book", "grimoire", "ars theurgia goetia", NULL};
 
 static int alwaysTrue(OBJECT *obj) { return 1; }
 
@@ -1552,7 +1551,7 @@ OBJECT objs[] = {
 	},
 	{	/* 70 = exitCatacombsSouthToSouthEast */
 		alwaysTrue,
-		 "more catacombs to the west",
+		 "more catacombs to the east",
 		tags70,
 		 catacombsSouth,
 		 catacombsSouthEast,
@@ -1590,30 +1589,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 72 = exitCatacombsSouthEastFromSouth */
-		alwaysTrue,
-		 "more catacombs to the west",
-		tags72,
-		 catacombsSouth,
-		 catacombsSouthEast,
-		 catacombsSouthEast,
-		 "The catacombs extend to the west",
-		"You see",
-		 "You head west through the catacombs\n",
-		99,
-		9999,
-		0,
-		0,
-		 isAlreadyOpen,
-		cannotBeClosed,
-		cannotBeLocked,
-		cannotBeUnlocked,
-		0
-	},
-	{	/* 73 = catacombsSouthWest */
+	{	/* 72 = catacombsSouthWest */
 		alwaysTrue,
 		 "A web of deep tunnels filled with resting places for the dead",
-		tags73,
+		tags72,
 		NULL,
 		NULL,
 		NULL,
@@ -1630,10 +1609,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 74 = intoCatacombsSouthWestFromSouth */
+	{	/* 73 = intoCatacombsSouthWestFromSouth */
 		alwaysTrue,
 		 "more catacombs to the west",
-		tags74,
+		tags73,
 		 catacombsSouth,
 		 catacombsSouthWest,
 		 catacombsSouthWest,
@@ -1650,10 +1629,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 75 = exitCatacombsSouthWestToSouth */
+	{	/* 74 = exitCatacombsSouthWestToSouth */
 		alwaysTrue,
 		 "more catacombs to the east",
-		tags75,
+		tags74,
 		 catacombsSouthWest,
 		 catacombsSouth,
 		 catacombsSouth,
@@ -1670,10 +1649,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 76 = catacombsNorthWest */
+	{	/* 75 = catacombsNorthWest */
 		alwaysTrue,
 		 "A web of deep tunnels filled with resting places for the dead",
-		tags76,
+		tags75,
 		NULL,
 		NULL,
 		NULL,
@@ -1690,10 +1669,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 77 = intoCatacombsNorthWestFromNorth */
+	{	/* 76 = intoCatacombsNorthWestFromNorth */
 		alwaysTrue,
 		 "more catacombs to the west",
-		tags77,
+		tags76,
 		 catacombsNorth,
 		 catacombsNorthWest,
 		 catacombsNorthWest,
@@ -1710,10 +1689,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 78 = exitCatacombsNorthWestToNorth */
+	{	/* 77 = exitCatacombsNorthWestToNorth */
 		alwaysTrue,
 		 "more catacombs to the east",
-		tags78,
+		tags77,
 		 catacombsNorthWest,
 		 catacombsNorth,
 		 catacombsNorth,
@@ -1730,10 +1709,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 79 = catacombsWest */
+	{	/* 78 = catacombsWest */
 		alwaysTrue,
 		 "A web of deep tunnels filled with resting places for the dead",
-		tags79,
+		tags78,
 		NULL,
 		NULL,
 		NULL,
@@ -1750,10 +1729,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 80 = intoCatacombsWestFromNorthWest */
+	{	/* 79 = intoCatacombsWestFromNorthWest */
 		alwaysTrue,
 		 "more catacombs to the south",
-		tags80,
+		tags79,
 		 catacombsNorthWest,
 		 catacombsWest,
 		 catacombsWest,
@@ -1770,10 +1749,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 81 = exitCatacombsWestToNorthWest */
+	{	/* 80 = exitCatacombsWestToNorthWest */
 		alwaysTrue,
 		 "more catacombs to the north",
-		tags81,
+		tags80,
 		 catacombsWest,
 		 catacombsNorthWest,
 		 catacombsNorthWest,
@@ -1790,10 +1769,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 82 = intoCatacombsWestFromSouthWest */
+	{	/* 81 = intoCatacombsWestFromSouthWest */
 		alwaysTrue,
 		 "more catacombs to the north",
-		tags82,
+		tags81,
 		 catacombsSouthWest,
 		 catacombsWest,
 		 catacombsWest,
@@ -1810,10 +1789,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 83 = exitCatacombsWestToSouthWest */
+	{	/* 82 = exitCatacombsWestToSouthWest */
 		alwaysTrue,
 		 "more catacombs to the south",
-		tags83,
+		tags82,
 		 catacombsWest,
 		 catacombsSouthWest,
 		 catacombsSouthWest,
@@ -1830,10 +1809,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 84 = intoCatacombsCentralFromWest */
+	{	/* 83 = intoCatacombsCentralFromWest */
 		alwaysTrue,
 		 "more catacombs to the east",
-		tags84,
+		tags83,
 		 catacombsWest,
 		 catacombsCentral,
 		 catacombsCentral,
@@ -1850,10 +1829,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 85 = exitCatacombsCentralToWest */
+	{	/* 84 = exitCatacombsCentralToWest */
 		alwaysTrue,
 		 "more catacombs to the west",
-		tags85,
+		tags84,
 		 catacombsCentral,
 		 catacombsWest,
 		 catacombsWest,
@@ -1870,10 +1849,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 86 = exitCatacombsCentralToNorth */
+	{	/* 85 = exitCatacombsCentralToNorth */
 		alwaysTrue,
 		 "more catacombs to the north",
-		tags86,
+		tags85,
 		 catacombsCentral,
 		 catacombsNorth,
 		 catacombsNorth,
@@ -1890,10 +1869,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 87 = exitCatacombsCentralToSouth */
+	{	/* 86 = exitCatacombsCentralToSouth */
 		alwaysTrue,
 		 "more catacombs to the south",
-		tags87,
+		tags86,
 		 catacombsCentral,
 		 catacombsSouth,
 		 catacombsSouth,
@@ -1910,10 +1889,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 88 = intoCatacombsWest */
+	{	/* 87 = intoCatacombsWest */
 		alwaysTrue,
 		 "an ancient web of catacombs to the east",
-		tags88,
+		tags87,
 		 ladderRoom,
 		 catacombsWest,
 		 catacombsWest,
@@ -1930,10 +1909,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 89 = exitCatacombsWestLadder */
+	{	/* 88 = exitCatacombsWestLadder */
 		alwaysTrue,
 		 "the deep vaults at the top of the ladder on the west side",
-		tags89,
+		tags88,
 		 catacombsWest,
 		 ladderRoom,
 		 ladderRoom,
@@ -1950,10 +1929,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 90 = forbiddenCrypt */
+	{	/* 89 = forbiddenCrypt */
 		alwaysTrue,
 		 "A large crypt, possibly for an important person",
-		tags90,
+		tags89,
 		NULL,
 		NULL,
 		NULL,
@@ -1970,10 +1949,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 91 = intoForbiddenCryptFromCatacombsEast */
+	{	/* 90 = intoForbiddenCryptFromCatacombsEast */
 		alwaysTrue,
 		 "the forbidden crypt to the east",
-		tags91,
+		tags90,
 		 catacombsEast,
 		 forbiddenCrypt,
 		 forbiddenCrypt,
@@ -1990,10 +1969,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 92 = exitForbiddenCryptToCatacombsWest */
+	{	/* 91 = exitForbiddenCryptToCatacombsWest */
 		alwaysTrue,
 		 "the catacombs lie to the west",
-		tags92,
+		tags91,
 		 forbiddenCrypt,
 		 catacombsWest,
 		 catacombsWest,
@@ -2010,10 +1989,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 93 = chamberOfRest */
+	{	/* 92 = chamberOfRest */
 		alwaysTrue,
 		 "A small room, with a bed and chamber put",
-		tags93,
+		tags92,
 		NULL,
 		NULL,
 		NULL,
@@ -2030,10 +2009,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 94 = intoChamberOfRestFromCatacombsSouth */
+	{	/* 93 = intoChamberOfRestFromCatacombsSouth */
 		alwaysTrue,
-		 "the forbidden crypt to the west",
-		tags94,
+		 "A small chamber to the south",
+		tags93,
 		 catacombsSouth,
 		 chamberOfRest,
 		 chamberOfRest,
@@ -2050,10 +2029,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 95 = exitChamberOfRestToCatacombsSouth */
+	{	/* 94 = exitChamberOfRestToCatacombsSouth */
 		alwaysTrue,
 		 "the catacombs lie to the north",
-		tags95,
+		tags94,
 		 chamberOfRest,
 		 catacombsSouth,
 		 catacombsSouth,
@@ -2070,10 +2049,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 96 = sewerEntrance */
+	{	/* 95 = sewerEntrance */
 		alwaysTrue,
 		 "a hole leading down to some sewers",
-		tags96,
+		tags95,
 		NULL,
 		NULL,
 		NULL,
@@ -2090,10 +2069,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 97 = openGateToSewerEntrance */
+	{	/* 96 = openGateToSewerEntrance */
 		alwaysTrue,
 		 "a small gate, leading to a foul stench, it's open",
-		tags97,
+		tags96,
 		NULL,
 		 sewerEntrance,
 		 sewerEntrance,
@@ -2110,10 +2089,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 98 = closedGateToSewerEntrance */
+	{	/* 97 = closedGateToSewerEntrance */
 		alwaysTrue,
 		 "a small gate, leading to a foul stench, it's closed",
-		tags98,
+		tags97,
 		 catacombsNorth,
 		NULL,
 		 sewerEntrance,
@@ -2130,10 +2109,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 99 = openGateToCatacombsNorth */
+	{	/* 98 = openGateToCatacombsNorth */
 		alwaysTrue,
 		 "a small gate, leading to the catacombs, it's open",
-		tags99,
+		tags98,
 		NULL,
 		 catacombsNorth,
 		 catacombsNorth,
@@ -2150,10 +2129,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 100 = closedGateToCatacombsNorth */
+	{	/* 99 = closedGateToCatacombsNorth */
 		alwaysTrue,
 		 "a small gate, leading to the catacombs, it's closed",
-		tags100,
+		tags99,
 		 sewerEntrance,
 		NULL,
 		 catacombsNorth,
@@ -2170,10 +2149,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 101 = guardRoom */
+	{	/* 100 = guardRoom */
 		alwaysTrue,
 		 "a room for the torturers to rest",
-		tags101,
+		tags100,
 		NULL,
 		NULL,
 		NULL,
@@ -2190,10 +2169,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 102 = openDoorToGuardRoom */
+	{	/* 101 = openDoorToGuardRoom */
 		alwaysTrue,
 		 "a iron door with 'guard room' enscribed on it to the south",
-		tags102,
+		tags101,
 		NULL,
 		 guardRoom,
 		 guardRoom,
@@ -2210,10 +2189,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 103 = closedDoorToGuardRoom */
+	{	/* 102 = closedDoorToGuardRoom */
 		alwaysTrue,
 		 "a iron door with 'guard room' enscribed on it, it's closed",
-		tags103,
+		tags102,
 		 deepCentralVaults,
 		NULL,
 		 guardRoom,
@@ -2230,10 +2209,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 104 = openDoorToDeepVaults */
+	{	/* 103 = openDoorToDeepVaults */
 		alwaysTrue,
 		 "a iron door with 'To Vaults' enscribed on it",
-		tags104,
+		tags103,
 		NULL,
 		 deepCentralVaults,
 		 deepCentralVaults,
@@ -2250,10 +2229,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 105 = closedDoorToDeepVaults */
+	{	/* 104 = closedDoorToDeepVaults */
 		alwaysTrue,
 		 "a iron door with 'To Vaults' enscribed on it, it's closed",
-		tags105,
+		tags104,
 		 guardRoom,
 		NULL,
 		 deepCentralVaults,
@@ -2270,10 +2249,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 106 = wardensOffice */
+	{	/* 105 = wardensOffice */
 		alwaysTrue,
 		 "the Warden's office",
-		tags106,
+		tags105,
 		NULL,
 		NULL,
 		NULL,
@@ -2290,10 +2269,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 107 = intoWardensOffice */
+	{	/* 106 = intoWardensOffice */
 		alwaysTrue,
 		 "a wardens office to the south",
-		tags107,
+		tags106,
 		 guardRoom,
 		 wardensOffice,
 		 wardensOffice,
@@ -2310,10 +2289,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 108 = exitWardenOffice */
+	{	/* 107 = exitWardenOffice */
 		alwaysTrue,
 		 "the deep vaults are to the south",
-		tags108,
+		tags107,
 		 wardensOffice,
 		 guardRoom,
 		 guardRoom,
@@ -2330,10 +2309,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 109 = chamberAnteroom */
+	{	/* 108 = chamberAnteroom */
 		alwaysTrue,
 		 "a small anteroom to the south of the chamber",
-		tags109,
+		tags108,
 		NULL,
 		NULL,
 		NULL,
@@ -2350,10 +2329,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 110 = intoChamberAnteroom */
-		condition110,
+	{	/* 109 = intoChamberAnteroom */
+		condition109,
 		 "an small anteroom to the south",
-		tags110,
+		tags109,
 		 chamber,
 		 chamberAnteroom,
 		 chamberAnteroom,
@@ -2370,10 +2349,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 111 = intoChamberAnteroomBlocked */
-		condition111,
+	{	/* 110 = intoChamberAnteroomBlocked */
+		condition110,
 		 "an small anteroom to the south",
-		tags111,
+		tags110,
 		 chamber,
 		NULL,
 		 chamberAnteroom,
@@ -2390,10 +2369,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 112 = exitChamberAnteroom */
+	{	/* 111 = exitChamberAnteroom */
 		alwaysTrue,
 		 "a large chamber to the north",
-		tags112,
+		tags111,
 		 chamberAnteroom,
 		 chamber,
 		 chamber,
@@ -2410,10 +2389,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 113 = library */
+	{	/* 112 = library */
 		alwaysTrue,
 		 "a creepy looking libary room",
-		tags113,
+		tags112,
 		NULL,
 		NULL,
 		NULL,
@@ -2430,10 +2409,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 114 = openDoorToLibrary */
+	{	/* 113 = openDoorToLibrary */
 		alwaysTrue,
 		 "an ornate wooden door to the east. It's open",
-		tags114,
+		tags113,
 		NULL,
 		 library,
 		 library,
@@ -2450,10 +2429,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 115 = closedDoorToLibrary */
+	{	/* 114 = closedDoorToLibrary */
 		alwaysTrue,
 		 "an ornate wooden door to the east. It's closed",
-		tags115,
+		tags114,
 		 chamberAnteroom,
 		NULL,
 		 library,
@@ -2470,10 +2449,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 116 = openDoorToAnteroom */
+	{	/* 115 = openDoorToAnteroom */
 		alwaysTrue,
 		 "an ornate wooden door to the west leading to the chamber anteroom. It's open",
-		tags116,
+		tags115,
 		NULL,
 		 chamberAnteroom,
 		 chamberAnteroom,
@@ -2490,10 +2469,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 117 = closedDoorToAnteroom */
+	{	/* 116 = closedDoorToAnteroom */
 		alwaysTrue,
 		 "An ornate wooden door to the west leading to the chamber anteroom. It's open",
-		tags117,
+		tags116,
 		 library,
 		NULL,
 		 chamberAnteroom,
@@ -2510,10 +2489,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 118 = openDoorToBackroom */
+	{	/* 117 = openDoorToBackroom */
 		alwaysTrue,
 		 "an open door to the south",
-		tags118,
+		tags117,
 		NULL,
 		 backroom,
 		 backroom,
@@ -2530,10 +2509,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 119 = closedDoorToBackroom */
+	{	/* 118 = closedDoorToBackroom */
 		alwaysTrue,
 		 "a closed door to the south",
-		tags119,
+		tags118,
 		 cave,
 		NULL,
 		 backroom,
@@ -2550,10 +2529,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 120 = openDoorToCave */
+	{	/* 119 = openDoorToCave */
 		alwaysTrue,
 		 "an open door to the north",
-		tags120,
+		tags119,
 		NULL,
 		 cave,
 		 cave,
@@ -2570,10 +2549,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 121 = closedDoorToCave */
+	{	/* 120 = closedDoorToCave */
 		alwaysTrue,
 		 "a closed door to the north",
-		tags121,
+		tags120,
 		 backroom,
 		NULL,
 		 cave,
@@ -2590,10 +2569,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 122 = openBox */
+	{	/* 121 = openBox */
 		alwaysTrue,
 		 "a wooden box",
-		tags122,
+		tags121,
 		NULL,
 		NULL,
 		NULL,
@@ -2610,10 +2589,10 @@ OBJECT objs[] = {
 		 isAlreadyOpen,
 		0
 	},
-	{	/* 123 = closedBox */
+	{	/* 122 = closedBox */
 		alwaysTrue,
 		 "a wooden box",
-		tags123,
+		tags122,
 		NULL,
 		NULL,
 		NULL,
@@ -2630,10 +2609,10 @@ OBJECT objs[] = {
 		 isAlreadyUnlocked,
 		0
 	},
-	{	/* 124 = lockedBox */
+	{	/* 123 = lockedBox */
 		alwaysTrue,
 		 "a wooden box",
-		tags124,
+		tags123,
 		 backroom,
 		NULL,
 		NULL,
@@ -2650,10 +2629,10 @@ OBJECT objs[] = {
 		 toggleBoxLock,
 		0
 	},
-	{	/* 125 = openIronChest */
+	{	/* 124 = openIronChest */
 		alwaysTrue,
 		 "an open iron chest",
-		tags125,
+		tags124,
 		NULL,
 		NULL,
 		NULL,
@@ -2670,10 +2649,10 @@ OBJECT objs[] = {
 		 isAlreadyOpen,
 		0
 	},
-	{	/* 126 = closedIronChest */
+	{	/* 125 = closedIronChest */
 		alwaysTrue,
 		 "a closed iron chest",
-		tags126,
+		tags125,
 		NULL,
 		NULL,
 		NULL,
@@ -2690,10 +2669,10 @@ OBJECT objs[] = {
 		 isAlreadyUnlocked,
 		0
 	},
-	{	/* 127 = lockedIronChest */
+	{	/* 126 = lockedIronChest */
 		alwaysTrue,
 		 "a locked iron chest",
-		tags127,
+		tags126,
 		 wardensOffice,
 		NULL,
 		NULL,
@@ -2710,10 +2689,10 @@ OBJECT objs[] = {
 		 toggleIronChestLock,
 		0
 	},
-	{	/* 128 = keyForIronChest */
+	{	/* 127 = keyForIronChest */
 		alwaysTrue,
 		 "a bloody iron key",
-		tags128,
+		tags127,
 		 openStitchedCorpse,
 		NULL,
 		NULL,
@@ -2730,10 +2709,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 129 = keyForBox */
+	{	/* 128 = keyForBox */
 		alwaysTrue,
 		 "a tiny key",
-		tags129,
+		tags128,
 		 cave,
 		NULL,
 		NULL,
@@ -2750,10 +2729,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 130 = keyForSewerGate */
+	{	/* 129 = keyForSewerGate */
 		alwaysTrue,
 		 "a small key",
-		tags130,
+		tags129,
 		 forbiddenCrypt,
 		NULL,
 		NULL,
@@ -2770,10 +2749,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 131 = torch */
+	{	/* 130 = torch */
 		alwaysTrue,
 		 "an unlit torch",
-		tags131,
+		tags130,
 		 centralVaults,
 		NULL,
 		NULL,
@@ -2790,10 +2769,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		 1
 	},
-	{	/* 132 = cauldron */
+	{	/* 131 = cauldron */
 		alwaysTrue,
 		 "a bubbling cauldron",
-		tags132,
+		tags131,
 		 witchesLair,
 		NULL,
 		NULL,
@@ -2810,10 +2789,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 133 = closedStitchedCorpse */
+	{	/* 132 = closedStitchedCorpse */
 		alwaysTrue,
 		 "a corpse with it's chest recently stitched together",
-		tags133,
+		tags132,
 		 bodyPit,
 		NULL,
 		NULL,
@@ -2830,10 +2809,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 134 = openStitchedCorpse */
+	{	/* 133 = openStitchedCorpse */
 		alwaysTrue,
 		 "a corpse with it's chest ripped open",
-		tags134,
+		tags133,
 		NULL,
 		NULL,
 		NULL,
@@ -2850,10 +2829,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 135 = bookArsGoetia */
+	{	/* 134 = bookArsGoetia */
 		alwaysTrue,
 		 "the ars goetia, a grimoire book on demonology",
-		tags135,
+		tags134,
 		 library,
 		NULL,
 		NULL,
@@ -2870,10 +2849,10 @@ OBJECT objs[] = {
 		cannotBeUnlocked,
 		0
 	},
-	{	/* 136 = bookArsTheurgiaGoetia */
+	{	/* 135 = bookArsTheurgiaGoetia */
 		alwaysTrue,
 		 "the ars theurgia goetia, a grimoire book on demonology",
-		tags136,
+		tags135,
 		 openIronChest,
 		NULL,
 		NULL,

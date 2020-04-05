@@ -576,8 +576,8 @@ extern OBJECT objs[];
      open        isAlreadyOpen  
 
 - exitCatacombsSouthToSouthEast
-     description "more catacombs to the west"
-     tags        "west", "catacombs west"
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
      location    catacombsSouth
      destination catacombsSouthEast
      details     "The catacombs extend to the west"
@@ -591,15 +591,6 @@ extern OBJECT objs[];
      destination catacombsCentral
      details     "The catacombs extend to the north\n"
      textGo      "You head north through the ancient catacombs\n"
-     open        isAlreadyOpen  
-
-- exitCatacombsSouthEastFromSouth
-     description "more catacombs to the west"
-     tags        "west", "catacombs west"
-     location    catacombsSouth
-     destination catacombsSouthEast
-     details     "The catacombs extend to the west"
-     textGo      "You head west through the catacombs\n"
      open        isAlreadyOpen  
 
 - catacombsSouthWest
@@ -727,7 +718,7 @@ extern OBJECT objs[];
 
 - intoCatacombsWest
      description "an ancient web of catacombs to the east"
-     tags        "west", "catacombs west"
+     tags        "east", "catacombs east"
      location    ladderRoom
      destination catacombsWest
      details     "The ladder leads to the catacombs\n"
@@ -772,7 +763,7 @@ extern OBJECT objs[];
      details     "The stone door has been smashed to pieces\n"
 
 - intoChamberOfRestFromCatacombsSouth
-     description "the forbidden crypt to the west"
+     description "A small chamber to the south"
      tags        "south", "chamber"
      location    catacombsSouth
      destination chamberOfRest
