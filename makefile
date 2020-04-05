@@ -2,8 +2,8 @@ all: AbyssChambers map.png
 
 build: src/object.h src/object.c
 
-C = src/asciiPrint.c src/object.c src/misc.c src/inventory.c  src/location.c src/match.c src/toggle.c src/combat.c src/torch.c src/help.c src/execute.c src/main.c
-H = src/asciiPrint.h src/object.h src/misc.h src/inventory.h  src/location.h src/match.h src/toggle.h src/combat.h src/torch.h src/help.h src/execute.h
+C = src/asciiPrint.c src/boot.c src/object.c src/misc.c src/inventory.c  src/location.c src/match.c src/toggle.c src/combat.c src/torch.c src/help.c src/execute.c src/main.c
+H = src/asciiPrint.h src/boot.h src/object.h src/misc.h src/inventory.h  src/location.h src/match.h src/toggle.h src/combat.h src/torch.h src/help.h src/execute.h
 
 AbyssChambers: $(C) $(H)
 	gcc $(C) -o $@

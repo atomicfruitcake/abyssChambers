@@ -292,7 +292,7 @@ OBJECT objs[] = {
 		alwaysTrue,
 		 "yourself",
 		tags7,
-		 catacombsWest,
+		 copse,
 		NULL,
 		NULL,
 		 "You would need a mirror to look at yourself.\n",

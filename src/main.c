@@ -16,6 +16,7 @@
 
 #include "help.h"
 
+#include "boot.h"
 
 static char input[100];
 
@@ -69,6 +70,10 @@ static int parseAndExecute() {
 }
 
 int main() {
+    displayLoader();
+    printf("Welcome to the Abyss Chambers\n");
+    printf("Press ENTER key to start the descent\n");  
+    getchar();  
     printIntro();
     executeLook("around");
     while (getInput() && parseAndExecute());

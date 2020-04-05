@@ -73,7 +73,7 @@ extern OBJECT objs[];
 - player
      description "yourself"
      tags        "yourself"
-     location    catacombsWest
+     location    copse
      details     "You would need a mirror to look at yourself.\n"
      contents    "You have"
      health      100
