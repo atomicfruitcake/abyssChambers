@@ -1,8 +1,7 @@
 BEGIN {
    count = 0;
    obj = "";
-   if (pass == "c2")
-   {
+   if (pass == "c2") {
       print "\nstatic int alwaysTrue(OBJECT *obj) { return 1; }";
       print "\nOBJECT objs[] = {";
    }
@@ -34,17 +33,14 @@ BEGIN {
 obj && /^[ \t]+[a-z]/ {
    name = $1;
    $1 = "";
-   if (name in prop)
-   {
+   if (name in prop) {
       prop[name] = $0;
-      if (/^[ \t]*\{/)
-      {
+      if (/^[ \t]*\{/) {
          prop[name] = name count;
          if (pass == "c1") print "static int " prop[name] "(OBJECT *obj) " $0;
       }
    }
-   else if (pass == "c2")
-   {
+   else if (pass == "c2") {
       print "#error \"" FILENAME " line " NR ": unknown attribute '" name "'\"";
    }
 }
@@ -55,8 +51,7 @@ obj && /^[ \t]+[a-z]/ {
 
 END {
    outputRecord("\n};");
-   if (pass == "h")
-   {
+   if (pass == "h") {
       print "\n#define endOfObjs\t(objs + " count ")";
       print "\n#define validObject(obj)\t" \
             "((obj) != NULL && (*(obj)->condition)((obj)))";
@@ -65,20 +60,15 @@ END {
    }
 }
 
-function outputRecord(separator)
-{
-   if (obj)
-   {
-      if (pass == "h")
-      {
+function outputRecord(separator) {
+   if (obj) {
+      if (pass == "h") {
          print "#define " obj "\t(objs + " count ")";
       }
-      else if (pass == "c1")
-      {
+      else if (pass == "c1") {
          print "static const char *tags" count "[] = {" prop["tags"] ", NULL};";
       }
-      else if (pass == "c2")
-      {
+      else if (pass == "c2") {
          print "\t{\t/* " count " = " obj " */";
          print "\t\t" prop["condition"] ",";
          print "\t\t" prop["description"] ",";
