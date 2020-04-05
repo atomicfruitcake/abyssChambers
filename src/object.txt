@@ -534,15 +534,6 @@ extern OBJECT objs[];
      textGo      "You head east through the ancient catacombs\n"
      open        isAlreadyOpen  
 
-- exitCatacombsNorthEastToNorth
-     description "more catacombs to the west"
-     tags        "west", "catacombs west"
-     location    catacombsNorth
-     destination catacombsNorthEast
-     details     "The catacombs extend to the west"
-     textGo      "You head west through the catacombs\n"
-     open        isAlreadyOpen  
-
 - intoCatacombsCentralFromNorth
      description "more catacombs to the south"
      tags        "south", "catacombs sotuh"
@@ -752,7 +743,7 @@ extern OBJECT objs[];
      description "the catacombs lie to the west"
      tags        "west", "catacombs", "catacombs west"
      location    forbiddenCrypt
-     destination catacombsWest
+     destination catacombsEast
      details     "The catacombsare to the west"
      textGo      "You head west into the catacombs\n"
      open        isAlreadyOpen
