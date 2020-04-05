@@ -489,8 +489,8 @@ extern OBJECT objs[];
      open        isAlreadyOpen  
 
 - exitCatacombsSouthEastToEast
-     description "more catacombs to the south"
-     tags        "south", "catacombs south"
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
      location    catacombsSouthEast
      destination catacombsEast
      details     "The catacombs extend to the north"
@@ -526,17 +526,17 @@ extern OBJECT objs[];
      details     "The is space for more bodies here. There is an uneasy presence.\n"
 
 - intoCatacombsNorthFromNorthEast
-     description "more catacombs to the east"
-     tags        "east", "catacombs east"
+     description "more catacombs to the west"
+     tags        "west", "catacombs west"
      location    catacombsNorthEast
      destination catacombsNorth
      details     "The catacombs extend to the east\n"
      textGo      "You head east through the ancient catacombs\n"
-     open        isAlreadyOpen  
+     open        isAlreadyOpen
 
 - intoCatacombsCentralFromNorth
      description "more catacombs to the south"
-     tags        "south", "catacombs sotuh"
+     tags        "south", "catacombs south"
      location    catacombsNorth
      destination catacombsCentral
      details     "The catacombs extend to the south\n"
@@ -544,11 +544,11 @@ extern OBJECT objs[];
      open        isAlreadyOpen  
 
 - exitCatacombsNorthToNorthEast
-     description "more catacombs to the north"
-     tags        "north", "catacombs north"
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
      location    catacombsNorth
      destination catacombsNorthEast
-     details     "The catacombs extend to the north"
+     details     "The catacombs extend to the east"
      textGo      "You head north through the catacombs\n"
      open        isAlreadyOpen  
 
@@ -1077,7 +1077,7 @@ extern OBJECT objs[];
      description "a small key"
      tags        "key", "small key"
      location    forbiddenCrypt
-     details     "The key looks like it was dropped accidently \n"
+     details     "The key looks like it was dropped accidently.\n"
      weight      1
 
 - torch

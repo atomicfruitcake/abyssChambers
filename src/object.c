@@ -66,14 +66,14 @@ static const char *tags55[] = { "north", "catacombs north", NULL};
 static const char *tags56[] = { "south", "catacombs south", NULL};
 static const char *tags57[] = { "catacombsSouthEast", NULL};
 static const char *tags58[] = { "north", "catacombs south", NULL};
-static const char *tags59[] = { "south", "catacombs south", NULL};
+static const char *tags59[] = { "north", "catacombs north", NULL};
 static const char *tags60[] = { "catacombsCentral", NULL};
 static const char *tags61[] = { "west", "catacombs west", NULL};
 static const char *tags62[] = { "east", "catacombs east", NULL};
 static const char *tags63[] = { "catacombsNorth", NULL};
-static const char *tags64[] = { "east", "catacombs east", NULL};
-static const char *tags65[] = { "south", "catacombs sotuh", NULL};
-static const char *tags66[] = { "north", "catacombs north", NULL};
+static const char *tags64[] = { "west", "catacombs west", NULL};
+static const char *tags65[] = { "south", "catacombs south", NULL};
+static const char *tags66[] = { "east", "catacombs east", NULL};
 static const char *tags67[] = { "catacombsSouth", NULL};
 static const char *tags68[] = { "east", "catacombs east", NULL};
 static const char *tags69[] = { "east", "catacombs east", NULL};
@@ -1330,7 +1330,7 @@ OBJECT objs[] = {
 	},
 	{	/* 59 = exitCatacombsSouthEastToEast */
 		alwaysTrue,
-		 "more catacombs to the south",
+		 "more catacombs to the north",
 		tags59,
 		 catacombsSouthEast,
 		 catacombsEast,
@@ -1430,7 +1430,7 @@ OBJECT objs[] = {
 	},
 	{	/* 64 = intoCatacombsNorthFromNorthEast */
 		alwaysTrue,
-		 "more catacombs to the east",
+		 "more catacombs to the west",
 		tags64,
 		 catacombsNorthEast,
 		 catacombsNorth,
@@ -1470,12 +1470,12 @@ OBJECT objs[] = {
 	},
 	{	/* 66 = exitCatacombsNorthToNorthEast */
 		alwaysTrue,
-		 "more catacombs to the north",
+		 "more catacombs to the east",
 		tags66,
 		 catacombsNorth,
 		 catacombsNorthEast,
 		 catacombsNorthEast,
-		 "The catacombs extend to the north",
+		 "The catacombs extend to the east",
 		"You see",
 		 "You head north through the catacombs\n",
 		99,
@@ -2715,7 +2715,7 @@ OBJECT objs[] = {
 		 forbiddenCrypt,
 		NULL,
 		NULL,
-		 "The key looks like it was dropped accidently \n",
+		 "The key looks like it was dropped accidently.\n",
 		"You see",
 		"You can't get any closer than this.\n",
 		 1,
