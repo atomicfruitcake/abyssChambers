@@ -35,7 +35,8 @@ static void moveObject(const char * noun, OBJECT * from, OBJECT * to) {
             }
             break;
         case distHereContained:
-            printf("Sorry, %s is holding it.\n", obj -> location -> description);
+            obj -> location = to;
+            printf("You pick up the %s \n", obj -> tags[0]);
             break;
         default:
             printf("You don't see any %s here.\n", noun);

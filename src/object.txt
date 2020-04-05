@@ -73,7 +73,7 @@ extern OBJECT objs[];
 - player
      description "yourself"
      tags        "yourself"
-     location    copse
+     location    catacombsWest
      details     "You would need a mirror to look at yourself.\n"
      contents    "You have"
      health      100
@@ -90,7 +90,7 @@ extern OBJECT objs[];
      attack      2
 
 - skeletonGuard
-     description "an necromanced skeleton guard"
+     description "a necromanced skeleton guard"
      tags        "skeleton", "guard", "skeleton guard"
      location    chamber
      details     "The skeleton is blocking the way through the chamber.\n There must be a necromancer nearby"
@@ -372,7 +372,7 @@ extern OBJECT objs[];
      details     "The bottom of the staircase leads to the vaults\n"
 
 - intoDeepCentralVaults
-     condition   { return torch -> lit == 0 && torch -> location == player->location; }
+     condition   { return torch -> lit == 0; }
      description "a deeper section of the central vaults to the east"
      tags        "east", "deeper", "deep"
      location    centralVaults
@@ -429,7 +429,7 @@ extern OBJECT objs[];
      details     "The bodies appear to have been tortured ritually. Who would do such a thing?\n"
 
 - intoladderRoom
-     description "a ladder leading even deeper"
+     description "a ladder leading even deeper to the east"
      tags        "east", "ladder"
      location    deepCentralVaults
      destination ladderRoom
@@ -530,12 +530,12 @@ extern OBJECT objs[];
      open        isAlreadyOpen  
 
 - exitCatacombsCentralToEast
-     description "more catacombs to the west"
-     tags        "west", "catacombs west"
+     description "more catacombs to the east"
+     tags        "east", "catacombs east"
      location    catacombsCentral
      destination catacombsEast
-     details     "The catacombs extend to the west"
-     textGo      "You head west through the catacombs\n"
+     details     "The catacombs extend to the east"
+     textGo      "You head east through the catacombs\n"
      open        isAlreadyOpen  
 
 - catacombsNorth
@@ -725,6 +725,24 @@ extern OBJECT objs[];
      textGo      "You head west through the catacombs\n"
      open        isAlreadyOpen  
 
+- exitCatacombsCentralToNorth
+     description "more catacombs to the north"
+     tags        "north", "catacombs north"
+     location    catacombsCentral
+     destination catacombsNorth
+     details     "The catacombs extend to the north"
+     textGo      "You head north through the catacombs\n"
+     open        isAlreadyOpen 
+
+- exitCatacombsCentralToSouth
+     description "more catacombs to the south"
+     tags        "south", "catacombs south"
+     location    catacombsCentral
+     destination catacombsSouth
+     details     "The catacombs extend to the south"
+     textGo      "You head south through the catacombs\n"
+     open        isAlreadyOpen  
+
 - forbiddenCrypt
      description "A large crypt, possibly for an important person"
      tags        "crypt", "forbidden crypt"
@@ -746,7 +764,73 @@ extern OBJECT objs[];
      destination catacombsWest
      details     "The catacombs extend to the west"
      textGo      "You head west into the catacombs\n"
+     open        isAlreadyOpen
+
+- chamberOfRest
+     description "A small room, with a bed and chamber put"
+     tags        "room", "chamber", "chamber of rest"
+     details     "The stone door has been smashed to pieces\n"
+
+- intoChamberOfRestFromCatacombsSouth
+     description "the forbidden crypt to the west"
+     tags        "south", "chamber"
+     location    catacombsSouth
+     destination chamberOfRest
+     details     "A small chamber lies to the south\n"
+     textGo      "You head south into the chamber\n"
      open        isAlreadyOpen  
+
+- exitChamberOfRestToCatacombsSouth
+     description "the catacombs lie to the north"
+     tags        "north", "catacombs", "catacombs north"
+     location    chamberOfRest
+     destination catacombsSouth
+     details     "The catacombs lie to the north"
+     textGo      "You head north into the catacombs\n"
+     open        isAlreadyOpen
+
+- sewerEntrance
+     description "a hole leading down to some sewers"
+     tags        "sewer", "hole", "sewer entrance"
+     details     "The room is filled with chains and torture devices\n"
+
+- openGateToSewerEntrance
+     description "a small gate, leading to a foul stench, it's open"
+     tags        "gate", "door", "sewer gate"
+     destination sewerEntrance
+     details     "The gate is open.\n"
+     textGo      "You walk through the gate into the sewers\n"
+     open        isAlreadyOpen
+     close       toggleGateToSewerEntrance
+
+- closedGateToSewerEntrance
+     description "a small gate, leading to a foul stench, it's closed"
+     tags        "gate", "door", "sewer gate"
+     location    catacombsNorth
+     prospect    sewerEntrance
+     details     "The gate is closed.\n"
+     textGo      "The gate to the sewers is closed.\n"
+     open        toggleGateToSewerEntrance
+     close       isAlreadyClosed  
+
+- openGateToCatacombsNorth
+     description "a small gate, leading to the catacombs, it's open"
+     tags        "gate", "sewer gate", "catatcombs"
+     destination catacombsNorth
+     details     "The gate is open.\n"
+     textGo      "You walk through the gate into the catacombs\n"
+     open        isAlreadyOpen
+     close       toggleGateToSewerEntrance
+
+- closedGateToCatacombsNorth
+     description "a small gate, leading to the catacombs, it's closed"
+     tags        "gate", "sewer gate", "catatcombs"
+     location    sewerEntrance
+     prospect    catacombsNorth
+     details     "The gate is closed.\n"
+     textGo      "The gate to the sewers is closed.\n"
+     open        toggleGateToSewerEntrance
+     close       isAlreadyClosed  
 
 - guardRoom
      description "a room for the torturers to rest"
@@ -797,7 +881,7 @@ extern OBJECT objs[];
      details     "The Warden must manage the operations from here. What were they trying to do?\n"
 
 - intoWardensOffice
-     description "a vile stench is coming from the north"
+     description "a wardens office to the south"
      tags        "south", "office", "wardens office"
      location    guardRoom
      destination wardensOffice
@@ -962,7 +1046,7 @@ extern OBJECT objs[];
      unlock      toggleBoxLock
 
 - openIronChest
-     description "an iron chest"
+     description "an open iron chest"
      tags        "chest", "iron chest"
      details     "The chest is locked.\n"
      weight      5
@@ -973,7 +1057,7 @@ extern OBJECT objs[];
      unlock      isAlreadyOpen
 
 - closedIronChest
-     description "an iron chest"
+     description "a closed iron chest"
      tags        "chest", "iron chest"
      details     "The chest is closed.\n"
      weight      5
@@ -983,7 +1067,7 @@ extern OBJECT objs[];
      unlock      isAlreadyUnlocked
 
 - lockedIronChest
-     description "an iron chest"
+     description "a locked iron chest"
      tags        "chest", "iron chest"
      location    wardensOffice
      details     "The chest is locked.\n"
@@ -1007,6 +1091,13 @@ extern OBJECT objs[];
      details     "The key is really small and shiny.\n"
      weight      1
 
+- keyForSewerGate
+     description "a small key"
+     tags        "key", "small key"
+     location    forbiddenCrypt
+     details     "The key looks like it was dropped accidently \n"
+     weight      1
+
 - torch
      description "an unlit torch"
      tags        "torch", "unlit torch"
@@ -1022,7 +1113,7 @@ extern OBJECT objs[];
      details     "The cauldron is bubbling with a fire underneath"
      weight      999
 
-- openStitchedCorpse
+- closedStitchedCorpse
      description "a corpse with it's chest recently stitched together"
      tags        "corpse", "stiched corpse", "body"
      location    bodyPit
@@ -1031,11 +1122,10 @@ extern OBJECT objs[];
      open        toggleCorpse
      close       isAlreadyClosed
 
-- closedStitchedCorpse
-     description "a corpse with it's chest recently stitched together"
+- openStitchedCorpse
+     description "a corpse with it's chest ripped open"
      tags        "corpse", "stiched corpse", "body"
-     location    bodyPit
-     details     "I've ripped open the chest of the corpse revealing the insides\n"
+     details     "You've ripped open the chest of the corpse revealing the insides\n"
      weight      999
      open        isAlreadyOpen
      close       toggleCorpse

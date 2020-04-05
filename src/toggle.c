@@ -64,11 +64,18 @@ const char * toggleBox(OBJECT * obj) {
 
 const char * toggleCorpse(OBJECT * obj) {
     swapLocations(openStitchedCorpse, closedStitchedCorpse);
+    keyForIronChest -> location = bodyPit;
     return "OK.\n";
 }
 
 const char * toggleGuardRoomDoor(OBJECT * obj) {
     swapLocations(openDoorToGuardRoom, closedDoorToGuardRoom);
+    swapLocations(openDoorToDeepVaults, closedDoorToDeepVaults);
+    return "OK.\n";
+}
+
+const char * toggleGateToSewerEntrance(OBJECT * obj) {
+    swapLocations(openGateToSewerEntrance, closedGateToSewerEntrance);
     swapLocations(openDoorToDeepVaults, closedDoorToDeepVaults);
     return "OK.\n";
 }
@@ -84,6 +91,7 @@ const char * toggleBoxLock(OBJECT * obj) {
 
 const char * toggleIronChest(OBJECT * obj) {
     swapLocations(openIronChest, closedIronChest);
+    bookArsTheurgiaGoetia -> location = wardensOffice;
     return "OK.\n";
 }
 
