@@ -34,6 +34,7 @@ static void movePlayer(OBJECT * passage) {
         player -> location = passage -> destination;
         printf("\n");
         executeLook("around");
+        printf("%s\n", player -> location -> description);
     }
 }
 
@@ -48,6 +49,7 @@ void executeGo(const char * noun) {
         movePlayer(getPassageTo(obj));
     } else if (distance == distHere) {
         movePlayer(obj);
+        
     } else if (distance < distNotHere) {
         printf("You can't get any closer than this.\n");
     } else {
