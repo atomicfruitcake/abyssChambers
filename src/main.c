@@ -18,6 +18,8 @@
 
 #include "boot.h"
 
+#include "health.h"
+
 static char input[100];
 
 static int getInput() {
@@ -58,6 +60,8 @@ static int parseAndExecute() {
             executeLock(noun);
         } else if (strcmp(verb, "unlock") == 0) {
             executeUnlock(noun);
+        } else if (strcmp(verb, "heal") == 0) {
+            executeHeal();
         } else if (strcmp(verb, "light") == 0) {
             if (strcmp(noun, "torch") == 0) {
                 executeLightTorch();

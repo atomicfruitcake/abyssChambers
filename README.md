@@ -32,5 +32,6 @@ close
 unlock
 lock
 ask
+heal
 light
 ```

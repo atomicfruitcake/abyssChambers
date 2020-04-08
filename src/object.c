@@ -98,7 +98,7 @@ static const char *tags87[] = { "west", "ladder", NULL};
 static const char *tags88[] = { "crypt", "forbidden crypt", NULL};
 static const char *tags89[] = { "east", "crypt", "forbidden crypt", NULL};
 static const char *tags90[] = { "west", "catacombs", "catacombs west", NULL};
-static const char *tags91[] = { "room", "chamber", "chamber of rest", NULL};
+static const char *tags91[] = { "chamber of rest", "room", "chamber", NULL};
 static const char *tags92[] = { "south", "chamber", NULL};
 static const char *tags93[] = { "north", "catacombs", "catacombs north", NULL};
 static const char *tags94[] = { "sewer", "hole", "sewer entrance", NULL};
@@ -1970,7 +1970,7 @@ OBJECT objs[] = {
 	},
 	{	/* 91 = chamberOfRest */
 		alwaysTrue,
-		 "A small room, with a bed and chamber put",
+		 "A small room, with a bed and chamber pot. It looks safe to heal in here",
 		tags91,
 		NULL,
 		NULL,

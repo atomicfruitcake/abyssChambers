@@ -749,8 +749,8 @@ extern OBJECT objs[];
      open        isAlreadyOpen
 
 - chamberOfRest
-     description "A small room, with a bed and chamber put"
-     tags        "room", "chamber", "chamber of rest"
+     description "A small room, with a bed and chamber pot. It looks safe to heal in here"
+     tags        "chamber of rest", "room", "chamber"
      details     "The stone door has been smashed to pieces\n"
 
 - intoChamberOfRestFromCatacombsSouth

@@ -15,6 +15,7 @@ void executeHelp() {
 		"unlock\n"
 		"lock\n"
 		"ask\n"
+		"heal\n"
 		"light\n"
 	);
 }
