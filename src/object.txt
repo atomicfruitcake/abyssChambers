@@ -119,6 +119,16 @@ extern OBJECT objs[];
      capacity    20
      attack      60
 
+- cacodemon
+     description "A floating cacodemon"
+     tags        "cacodemon", "demon"
+     location    catacombsCentral
+     details     "The demon is aggressive, but it doesn't look very strong.\n"
+     contents    "It has"
+     health      10
+     capacity    20
+     attack      20
+
 - exitCopse
      description "a field to the south"
      tags        "south", "exit", "leave"
@@ -736,7 +746,7 @@ extern OBJECT objs[];
      location    catacombsEast
      destination forbiddenCrypt
      details     "The forbidden crypt lies to the east\n"
-     textGo      "You head east into the forbidden crupt\n"
+     textGo      "You head east into the forbidden crypt\n"
      open        isAlreadyOpen  
 
 - exitForbiddenCryptToCatacombsWest
@@ -771,28 +781,28 @@ extern OBJECT objs[];
      textGo      "You head north into the catacombs\n"
      open        isAlreadyOpen
 
-- sewerEntrance
+- sewersEntrance
      description "a hole leading down to some sewers"
      tags        "sewer", "hole", "sewer entrance"
-     details     "The room is filled with chains and torture devices\n"
+     details     "The sewers smell rancid\n"
 
-- openGateToSewerEntrance
+- openGateToSewersEntrance
      description "a small gate, leading to a foul stench, it's open"
      tags        "gate", "door", "sewer gate"
-     destination sewerEntrance
+     destination sewersEntrance
      details     "The gate is open.\n"
      textGo      "You walk through the gate into the sewers\n"
      open        isAlreadyOpen
-     close       toggleGateToSewerEntrance
+     close       toggleGateToSewersEntrance
 
-- closedGateToSewerEntrance
+- closedGateToSewersEntrance
      description "a small gate, leading to a foul stench, it's closed"
      tags        "gate", "door", "sewer gate"
      location    catacombsNorth
-     prospect    sewerEntrance
+     prospect    sewersEntrance
      details     "The gate is closed.\n"
      textGo      "The gate to the sewers is closed.\n"
-     open        toggleGateToSewerEntrance
+     open        toggleGateToSewersEntrance
      close       isAlreadyClosed  
 
 - openGateToCatacombsNorth
@@ -802,17 +812,63 @@ extern OBJECT objs[];
      details     "The gate is open.\n"
      textGo      "You walk through the gate into the catacombs\n"
      open        isAlreadyOpen
-     close       toggleGateToSewerEntrance
+     close       toggleGateToSewersEntrance
 
 - closedGateToCatacombsNorth
      description "a small gate, leading to the catacombs, it's closed"
      tags        "gate", "sewer gate", "catatcombs"
-     location    sewerEntrance
+     location    sewersEntrance
      prospect    catacombsNorth
      details     "The gate is closed.\n"
      textGo      "The gate to the sewers is closed.\n"
-     open        toggleGateToSewerEntrance
+     open        toggleGateToSewersEntrance
      close       isAlreadyClosed  
+
+- sewersEast
+     description "the sewers are disgusting"
+     tags        "east", "east sewer"
+     details     "The sewers smell rancid\n"
+
+- intoSewersEastFromSewersEntrance
+     description "the sewers continue to the east"
+     tags        "east"
+     location    sewersEntrance
+     destination sewersEast
+     details     "The sewers continue to the east\n"
+     textGo      "You head east through the sewers\n"
+     open        isAlreadyOpen  
+
+- intoSewersEntranceFromSewersEast
+     description "the sewers continue to the west"
+     tags        "west"
+     location    sewersEast
+     destination sewersEntrance
+     details     "The sewers continue to the west\n"
+     textGo      "You head west through the sewers\n"
+     open        isAlreadyOpen  
+
+- sewersWest
+     description "the sewers are foul"
+     tags        "west", "east sewer"
+     details     "The sewers smell rancid\n"
+
+- intoSewersWestFromSewersEntrance
+     description "the sewers continue to the west"
+     tags        "west"
+     location    sewersEntrance
+     destination sewersWest
+     details     "The sewers continue to the west\n"
+     textGo      "You head west through the sewers\n"
+     open        isAlreadyOpen  
+
+- intoSewersEntranceFromSewersWest
+     description "the sewers continue to the east"
+     tags        "east"
+     location    sewersWest
+     destination sewersEntrance
+     details     "The sewers continue to the east\n"
+     textGo      "You head east through the sewers\n"
+     open        isAlreadyOpen  
 
 - guardRoom
      description "a room for the torturers to rest"
@@ -1123,5 +1179,19 @@ extern OBJECT objs[];
      description "the ars theurgia goetia, a grimoire book on demonology"
      tags        "book", "demon book", "grimoire", "ars theurgia goetia"
      location    openIronChest
+     details     "This is another grimoire on demons\n"
+     weight      1
+
+- bookArsPaulina
+     description "the ars paulina, a grimoire book on demonology"
+     tags        "book", "demon book", "grimoire", "ars paulina"
+     location    forbiddenCrypt
+     details     "This is another grimoire on demons\n"
+     weight      1
+
+- bookArsAlmadel
+     description "the ars almadel, a grimoire book on demonology"
+     tags        "book", "demon book", "grimoire", "ars almadel"
+     location    cacodemon
      details     "This is another grimoire on demons\n"
      weight      1

@@ -74,8 +74,8 @@ const char * toggleGuardRoomDoor(OBJECT * obj) {
     return "OK.\n";
 }
 
-const char * toggleGateToSewerEntrance(OBJECT * obj) {
-    swapLocations(openGateToSewerEntrance, closedGateToSewerEntrance);
+const char * toggleGateToSewersEntrance(OBJECT * obj) {
+    swapLocations(openGateToSewersEntrance, closedGateToSewersEntrance);
     swapLocations(openDoorToDeepVaults, closedDoorToDeepVaults);
     return "OK.\n";
 }

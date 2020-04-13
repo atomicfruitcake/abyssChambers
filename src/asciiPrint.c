@@ -16,14 +16,27 @@ void printAscii(const char * asciiFile) {
 	}
 	while(s!=EOF);
 	fclose(fp);
+	printf("\n");
 }
 
 void printIntro() {
     printAscii("./src/ascii/intro.txt");
 }
 
+void printField() {
+	printAscii("./src/ascii/field.txt");
+}
+
+void printSword() {
+	printAscii("./src/ascii/sword.txt");
+}
+
 void printLibrary() {
 	printAscii("./src/ascii/library.txt");
+}
+
+void printAxe() {
+	printAscii("./src/ascii/axe.txt");
 }
 
 void printIronChest() {
