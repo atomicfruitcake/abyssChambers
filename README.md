@@ -6,6 +6,23 @@ Abyss Chambers is a text adventure game written in the C programming language
 
 ## How do I run this
 
+Before running, ensure you have graphviz installed
+
+On Mac
+```bash
+brew installl graphviz
+```
+
+On Ubuntu/Debian
+```bash
+sudo apt install graphviz
+```
+
+On Fedora/RedHat/CentOS
+```bash
+sudo yum install graphviz
+```
+
 From the root the application in a terminal, run:
 ```bash
 make
@@ -35,3 +52,5 @@ ask
 heal
 light
 ```
+
+## Dev Guide

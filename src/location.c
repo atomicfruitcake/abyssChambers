@@ -7,7 +7,7 @@
 #include "misc.h"
 
 void executeLook(const char * noun) {
-    if (noun != NULL && strcmp(noun, "around") == 0) {
+    if ((noun == NULL) || (noun != NULL && strcmp(noun, "around") == 0)) {
         printf("You are in %s.\n", player -> location -> description);
         listObjectsAtLocation(player -> location);
     } else {
