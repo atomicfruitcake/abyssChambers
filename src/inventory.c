@@ -8,6 +8,10 @@
 
 static void moveObject(const char * noun, OBJECT * from, OBJECT * to) {
     OBJECT * obj = parseObject(noun);
+    if (!obj) {
+        printf("I don't know what a %s is", noun);
+        return;
+    }
     if (nounIsInTags("ars goetia", obj->tags)) {
         printLibrary();
     }

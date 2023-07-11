@@ -45,7 +45,10 @@ OBJECT * parseObject(const char * noun) {
             found = obj;
         }
     }
-    return found;
+    if (found) {
+        return found;
+    }
+    return NULL;
 }
 
 OBJECT * personHere(void) {
